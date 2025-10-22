@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Proxy's:TheLastFirewall"
-run/main_scene="uid://dx80qn4qs8wsk"
+run/main_scene="uid://ca2yx02fpiikm"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

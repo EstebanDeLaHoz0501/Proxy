@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2jxvklfedbsp"]
+
+[ext_resource type="Script" uid="uid://dx1h7cag0yu0x" path="res://utilidad/boton1.gd" id="1_2bokb"]
+
+[node name="Button" type="Button"]
+offset_right = 187.0
+offset_bottom = 91.0
+script = ExtResource("1_2bokb")
+next_scene_path = "res://prueba.tscn"
