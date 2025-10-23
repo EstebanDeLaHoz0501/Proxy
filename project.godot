@@ -15,6 +15,10 @@ run/main_scene="uid://ca2yx02fpiikm"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Proxyy="*res://core/Proxyy.gd"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

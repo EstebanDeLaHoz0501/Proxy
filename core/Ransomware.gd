@@ -1,6 +1,8 @@
 class_name Ransomware
 extends Virus
 
+func _init():
+	super("Ransomware")
 
 func move():
 	pass

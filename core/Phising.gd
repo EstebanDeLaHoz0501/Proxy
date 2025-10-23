@@ -1,6 +1,8 @@
 class_name Phising
 extends Virus
 
+func _init():
+	super("Phising")
 
 func move():
 	pass

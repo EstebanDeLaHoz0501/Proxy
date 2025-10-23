@@ -35,7 +35,7 @@ grow_vertical = 2
 texture = ExtResource("1_lti8b")
 expand_mode = 1
 
-[node name="jugar" type="Button" parent="."]
+[node name="play" type="Button" parent="."]
 layout_mode = 0
 offset_left = 576.0
 offset_top = 581.0
@@ -67,7 +67,7 @@ offset_right = 1133.0
 offset_bottom = 635.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ytr4m")
 
-[connection signal="pressed" from="jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="play" to="." method="_on_jugar_pressed"]
 [connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="extras" to="." method="_on_extras_pressed"]
 [connection signal="pressed" from="extras" to="." method="_on_button_pressed"]

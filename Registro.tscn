@@ -129,4 +129,5 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_0pw3f")
 text = "OK"
 autowrap_mode = 3
 
+[connection signal="text_submitted" from="ColorRect/LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="ColorRect/Button3" to="." method="_on_button_3_pressed"]

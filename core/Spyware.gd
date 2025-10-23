@@ -1,6 +1,9 @@
 class_name Spyware
 extends Virus
 
+func _init():
+	super("Spyware")
+
 
 func move():
 	pass
