@@ -8,3 +8,5 @@ var _partidasJugadas = []
 func _init(n):
 	self._nombre=n
 	
+func getNiveles():
+	return self._nivelesJugados

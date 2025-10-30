@@ -1,3 +1,4 @@
+extends Node
 class_name Nivel
 
 var _dificultad
@@ -7,3 +8,6 @@ func _init(dificultad):
 	
 func getDificultad():
 	return _dificultad
+	
+
+	

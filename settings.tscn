@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://celmh2qhwtbax"]
+[gd_scene load_steps=2 format=3 uid="uid://celmh2qhwtbax"]
+
+[ext_resource type="Script" uid="uid://ceru07bx5p6fo" path="res://settings.gd" id="1_x2hje"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,3 +9,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_x2hje")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.00003
+offset_top = 72.0
+offset_right = 3.230835
+offset_bottom = 139.06146
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.0796964, -2.3113112)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

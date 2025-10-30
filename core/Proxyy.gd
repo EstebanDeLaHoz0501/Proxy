@@ -1,12 +1,11 @@
 extends Node
 class_name Proxy
 
-var _jugando
+var _jugadorActual
 var _jugadores =[]
 var _niveles =[]
 var _virus=[]
 func _init():
-	self._jugando = true
 	
 	self._niveles.append(Nivel.new(1))
 	self._niveles.append(Nivel.new(2))
@@ -29,4 +28,11 @@ func getNivel(dif):
 		if nivel.getdificultad()==dif:
 			return nivel
 	return null
+func setJugadorAcual (jugador):
+	self._jugadorAcual = jugador
 	
+func getJugadorActual():
+	return self._jugadorActual
+	
+func getNiveles():
+	return self._niveles

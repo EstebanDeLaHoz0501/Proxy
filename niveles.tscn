@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv63rppclssgl"]
+[gd_scene load_steps=4 format=3 uid="uid://cv63rppclssgl"]
 
 [ext_resource type="Script" uid="uid://b0opbf14ts84c" path="res://niveles.gd" id="1_lubpe"]
-[ext_resource type="Texture2D" uid="uid://cfyi0usom847a" path="res://asets/menu.jpg" id="2_u0uhv"]
+[ext_resource type="Texture2D" uid="uid://wi85taktdyyf" path="res://asets/Imagen de WhatsApp 2025-10-23 a las 14.35.35_870be238.jpg" id="2_p8yhe"]
+[ext_resource type="Script" uid="uid://b81ic0ns8eui6" path="res://core/Nivel.gd" id="3_p8yhe"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -27,7 +28,7 @@ offset_right = -14.0
 offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_u0uhv")
+texture = ExtResource("2_p8yhe")
 expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -49,6 +50,7 @@ theme_override_constants/separation = 10
 layout_mode = 2
 theme_override_font_sizes/font_size = 34
 text = "NIVEL 1"
+script = ExtResource("3_p8yhe")
 
 [node name="nivel 2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
