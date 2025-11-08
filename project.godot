@@ -11,13 +11,21 @@ config_version=5
 [application]
 
 config/name="Proxy's:TheLastFirewall"
-run/main_scene="uid://ca2yx02fpiikm"
+run/main_scene="uid://dhnd32hkwlpcf"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
 
 [autoload]
 
-Proxyy="*res://core/Proxyy.gd"
+SAVEMANAGER="*res://scripts/core/save_manager.gd"
+GAMEMANAGER="*res://scripts/core/game_manager.gd"
+CPULOGIC="*res://scripts/core/cpu_logic.gd"
+PLAYER="*res://scripts/nodes/player.gd"
+
+[display]
+
+window/size/viewport_width=1440
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
 
 [rendering]
 

@@ -1,0 +1,130 @@
+[gd_scene load_steps=17 format=3 uid="uid://ca2yx02fpiikm"]
+
+[ext_resource type="Script" uid="uid://c7n0bh204o2us" path="res://scripts/ui/menu.gd" id="1_wedc3"]
+[ext_resource type="Texture2D" uid="uid://cfyi0usom847a" path="res://assets/textures/menu.jpg" id="2_c2n5p"]
+[ext_resource type="Texture2D" uid="uid://cmvipyc6016iq" path="res://assets/textures/0-STATIC/1.png" id="3_288ov"]
+[ext_resource type="Texture2D" uid="uid://dgd342ohfdrn5" path="res://assets/textures/0-STATIC/2.png" id="4_tub5d"]
+[ext_resource type="Texture2D" uid="uid://bk1481bsp1fuy" path="res://assets/textures/0-STATIC/3.png" id="5_dnmb1"]
+[ext_resource type="Texture2D" uid="uid://bn2j2kygv5ai0" path="res://assets/textures/0-STATIC/4.png" id="6_5j7hh"]
+[ext_resource type="Texture2D" uid="uid://c73jgeiwpc1xt" path="res://assets/textures/0-STATIC/5.png" id="7_y7dvm"]
+[ext_resource type="Texture2D" uid="uid://dmjdjq7wc6tkf" path="res://assets/textures/0-STATIC/6.png" id="8_ir0oc"]
+[ext_resource type="Texture2D" uid="uid://g2c0ltyhc05g" path="res://assets/textures/0-STATIC/7.png" id="9_a7ikg"]
+[ext_resource type="Texture2D" uid="uid://bsw6q1284vup1" path="res://assets/textures/0-STATIC/8.png" id="10_v42es"]
+[ext_resource type="Script" uid="uid://df502q8ktrcuq" path="res://scripts/ui/static2.gd" id="11_tub5d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_47ju0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_288ov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tub5d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dnmb1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5j7hh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_y7dvm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ir0oc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_a7ikg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_v42es")
+}],
+"loop": true,
+"name": &"movimiento",
+"speed": 25.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouk20"]
+bg_color = Color(0.627451, 0.6156863, 0.3372549, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mae5d"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hy44"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytr4m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wedc3")
+
+[node name="textureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_c2n5p")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="estatica" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.39607844)
+position = Vector2(719.74994, 537.5)
+scale = Vector2(1.1253905, 1.4930557)
+sprite_frames = SubResource("SpriteFrames_47ju0")
+animation = &"movimiento"
+frame_progress = 0.52227396
+script = ExtResource("11_tub5d")
+
+[node name="play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 721.0
+offset_top = 983.0
+offset_right = -592.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ouk20")
+
+[node name="settings" type="Button" parent="."]
+layout_mode = 0
+offset_left = 857.0
+offset_top = 990.0
+offset_right = 1072.0
+offset_bottom = 1043.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_mae5d")
+
+[node name="extras" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1092.0
+offset_top = 995.0
+offset_right = 1256.0
+offset_bottom = 1040.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_4hy44")
+
+[node name="close" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1268.0
+offset_top = 990.0
+offset_right = 1406.0
+offset_bottom = 1038.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ytr4m")
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="extras" to="." method="_on_extras_pressed"]
+[connection signal="pressed" from="extras" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]

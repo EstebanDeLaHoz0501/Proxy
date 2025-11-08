@@ -1,0 +1,138 @@
+[gd_scene load_steps=13 format=3 uid="uid://cv63rppclssgl"]
+
+[ext_resource type="Script" uid="uid://b0opbf14ts84c" path="res://scripts/nodes/nights.gd" id="1_61h2b"]
+[ext_resource type="Texture2D" uid="uid://wi85taktdyyf" path="res://assets/textures/menu_sin_botones.jpg" id="2_e32bn"]
+[ext_resource type="Texture2D" uid="uid://cmvipyc6016iq" path="res://assets/textures/0-STATIC/1.png" id="3_4t847"]
+[ext_resource type="Texture2D" uid="uid://dgd342ohfdrn5" path="res://assets/textures/0-STATIC/2.png" id="4_2b1wa"]
+[ext_resource type="Texture2D" uid="uid://bk1481bsp1fuy" path="res://assets/textures/0-STATIC/3.png" id="5_x1op3"]
+[ext_resource type="Texture2D" uid="uid://bn2j2kygv5ai0" path="res://assets/textures/0-STATIC/4.png" id="6_x4v8v"]
+[ext_resource type="Texture2D" uid="uid://c73jgeiwpc1xt" path="res://assets/textures/0-STATIC/5.png" id="7_iykwm"]
+[ext_resource type="Texture2D" uid="uid://dmjdjq7wc6tkf" path="res://assets/textures/0-STATIC/6.png" id="8_c2tar"]
+[ext_resource type="Texture2D" uid="uid://g2c0ltyhc05g" path="res://assets/textures/0-STATIC/7.png" id="9_itqk0"]
+[ext_resource type="Texture2D" uid="uid://bsw6q1284vup1" path="res://assets/textures/0-STATIC/8.png" id="10_tgut7"]
+[ext_resource type="Script" uid="uid://bde4bmt28ihuu" path="res://scripts/ui/static3.gd" id="11_p54et"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8lxi4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4t847")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2b1wa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x1op3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_x4v8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_iykwm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_c2tar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_itqk0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tgut7")
+}],
+"loop": true,
+"name": &"movimiento",
+"speed": 25.0
+}]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 5.0
+offset_right = 15.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_61h2b")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.010000001
+anchor_top = -0.006
+anchor_right = 0.99000007
+anchor_bottom = 0.994
+offset_left = 0.40000057
+offset_top = 0.48000002
+offset_right = 0.39990234
+offset_bottom = 0.47998047
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_e32bn")
+expand_mode = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.40784314)
+position = Vector2(705, 539)
+scale = Vector2(1.121875, 1.5041668)
+sprite_frames = SubResource("SpriteFrames_8lxi4")
+animation = &"movimiento"
+frame = 2
+frame_progress = 0.43054503
+script = ExtResource("11_p54et")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.026
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 919.56
+offset_top = 422.0
+offset_right = -80.0
+offset_bottom = -343.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="night1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "night 1"
+
+[node name="night2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "night 2"
+
+[node name="night3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "night 3
+"
+
+[node name="night4" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "night 4"
+
+[node name="night5" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "night 5"
+
+[node name="backMenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1036.0
+offset_top = 861.0
+offset_right = 1267.0
+offset_bottom = 950.0
+theme_override_font_sizes/font_size = 40
+text = "back
+"
+autowrap_trim_flags = 0
+
+[connection signal="pressed" from="VBoxContainer/night1" to="." method="_on_night1_pressed"]
+[connection signal="pressed" from="backMenu" to="." method="_on_regresar_menu_pressed"]

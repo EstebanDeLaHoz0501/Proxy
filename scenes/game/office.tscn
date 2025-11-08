@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmigcqdtkctqs"]
+
+[ext_resource type="Texture2D" uid="uid://bjrya1po6ohok" path="res://assets/textures/oficina_con_energia.jpg" id="1_jhrcy"]
+[ext_resource type="Script" uid="uid://onjdyq0bcoh1" path="res://scripts/nodes/office.gd" id="1_p2odx"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p2odx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jhrcy")
+expand_mode = 1
+
+[node name="HUD" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1344.0
+offset_top = 394.0
+offset_right = 1384.0
+offset_bottom = 434.0
+
+[node name="kitsLabel" type="Label" parent="HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -33.424
+anchor_top = -9.55
+anchor_right = 35.894
+anchor_bottom = 26.728
+offset_left = 947.95996
+offset_top = 259.0
+offset_right = -1551.76
+offset_bottom = -954.12
+text = "PARCHES
+"
+
+[node name="nightTimer" type="Timer" parent="HUD"]
+
+[node name="cpuBar" type="ProgressBar" parent="HUD"]
+layout_mode = 0
+offset_right = 51.0
+offset_bottom = 46.0
+
+[node name="buttonBackToMenu" type="Button" parent="HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = 963.0
+offset_right = 232.0
+offset_bottom = 978.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 34
+text = "Abort Mission
+"
+
+[connection signal="pressed" from="HUD/buttonBackToMenu" to="." method="_on_button_back_to_menu_pressed"]

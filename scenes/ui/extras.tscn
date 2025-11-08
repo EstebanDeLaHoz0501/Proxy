@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://ckr85cenfn5rp"]
+
+[ext_resource type="Script" uid="uid://dvyws6bbqetri" path="res://scripts/ui/extras.gd" id="1_48roi"]
+[ext_resource type="Texture2D" uid="uid://wi85taktdyyf" path="res://assets/textures/menu_sin_botones.jpg" id="2_dfvqs"]
+[ext_resource type="Texture2D" uid="uid://cmvipyc6016iq" path="res://assets/textures/0-STATIC/1.png" id="3_e5e1m"]
+[ext_resource type="Texture2D" uid="uid://dgd342ohfdrn5" path="res://assets/textures/0-STATIC/2.png" id="4_v5udm"]
+[ext_resource type="Texture2D" uid="uid://bk1481bsp1fuy" path="res://assets/textures/0-STATIC/3.png" id="5_3agq1"]
+[ext_resource type="Texture2D" uid="uid://bn2j2kygv5ai0" path="res://assets/textures/0-STATIC/4.png" id="6_lsrhm"]
+[ext_resource type="Texture2D" uid="uid://c73jgeiwpc1xt" path="res://assets/textures/0-STATIC/5.png" id="7_1guhx"]
+[ext_resource type="Texture2D" uid="uid://dmjdjq7wc6tkf" path="res://assets/textures/0-STATIC/6.png" id="8_8mocm"]
+[ext_resource type="Texture2D" uid="uid://g2c0ltyhc05g" path="res://assets/textures/0-STATIC/7.png" id="9_r25gu"]
+[ext_resource type="Texture2D" uid="uid://bsw6q1284vup1" path="res://assets/textures/0-STATIC/8.png" id="10_e7iva"]
+[ext_resource type="Script" uid="uid://bxerdlsvbiuve" path="res://scripts/ui/static5.gd" id="11_i0qct"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4wcm6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_e5e1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_v5udm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3agq1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lsrhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1guhx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8mocm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_r25gu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_e7iva")
+}],
+"loop": true,
+"name": &"movimiento",
+"speed": 25.0
+}]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_48roi")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.001
+anchor_bottom = 1.0
+offset_right = -0.44006348
+texture = ExtResource("2_dfvqs")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="static5" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.38039216)
+position = Vector2(719.5, 540.24994)
+scale = Vector2(1.1257813, 1.5020832)
+sprite_frames = SubResource("SpriteFrames_4wcm6")
+animation = &"movimiento"
+script = ExtResource("11_i0qct")
+
+[node name="buttonBack2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1091.0
+offset_top = 844.0
+offset_right = -130.0
+offset_bottom = -137.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "back"
+
+[connection signal="pressed" from="buttonBack2" to="." method="_on_button_pressed"]

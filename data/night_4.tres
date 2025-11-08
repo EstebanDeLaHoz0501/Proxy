@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="NightBase" load_steps=2 format=3 uid="uid://bx08kqwou5y3m"]
+
+[ext_resource type="Script" uid="uid://b81ic0ns8eui6" path="res://scripts/nodes/night_base.gd" id="1_18mot"]
+
+[resource]
+script = ExtResource("1_18mot")
+metadata/_custom_type_script = "uid://b81ic0ns8eui6"
