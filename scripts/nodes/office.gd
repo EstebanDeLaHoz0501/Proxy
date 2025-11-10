@@ -4,7 +4,7 @@ extends Control # O el nodo raíz de tu oficina
 @onready var cpu_bar = $HUD/cpuBar # Ajusta esta ruta a tu ProgressBar
 @onready var night_timer = $HUD/nightTimer # Ajusta esta ruta a tu Timer
 @onready var kits_label = $HUD/kitsLabel # Ajusta esta ruta a tu Label de texto
-
+@onready var wallclock = $HUD/time
 # --- Referencias a los CONTROLADORES GLOBALES ---
 # (No necesitas @onready si son Autoloads)
 # Usamos @onready para esperar a que el árbol esté listo
@@ -38,8 +38,12 @@ func _process(delta):
 	# 2. Actualizar el Label de Kits (Vista)
 	kits_label.text = "KITS: " + str(Player.current_kits)
 
-	# (Opcional) Actualizar el reloj de la noche
-	kits_label.text = str(night_timer.time_left)
+		# 3. Actualizar el reloj de la noche (Vista)
+	var tiempo_restante = night_timer.time_left
+	var minutos = int(tiempo_restante / 60)
+	var segundos = int(tiempo_restante) - (minutos * 60)
+
+	wallclock.text = "   "+"%d:%02d" % [minutos, segundos]
 
 
 # --- CONTROLADOR DE ENTRADA ---
@@ -70,6 +74,28 @@ func _on_scanner_button_pressed():
 	CPULOGIC.aplicar_pulso_cpu(3.0) 
 
 # El escáner usa un kit de parcheo (ficticio, por ahora)
+	Player.use_kit() 
+
+# Aquí iría la lógica de escaneo visual
+	print("¡Pulso de CPU y Kit aplicado!")
+	
+func _on_parch_button_pressed():
+# Costo de la acción: 3% de CPU (el pulso)
+	CPULOGIC.aplicar_pulso_cpu(5.0) 
+
+# El escáner usa un kit de parcheo (ficticio, por ahora)
+	Player.use_kit() 
+
+# Aquí iría la lógica de escaneo visual
+	print("¡Pulso de CPU y Kit aplicado!")
+	
+func _on_parch_3_button_pressed():
+# Costo de la acción: 3% de CPU (el pulso)
+	CPULOGIC.aplicar_pulso_cpu(15.0) 
+
+# El escáner usa un kit de parcheo (ficticio, por ahora)
+	Player.use_kit() 
+	Player.use_kit() 
 	Player.use_kit() 
 
 # Aquí iría la lógica de escaneo visual

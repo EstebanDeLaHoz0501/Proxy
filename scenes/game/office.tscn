@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmigcqdtkctqs"]
+[gd_scene load_steps=14 format=3 uid="uid://bmigcqdtkctqs"]
 
 [ext_resource type="Script" uid="uid://onjdyq0bcoh1" path="res://scripts/nodes/office.gd" id="1_p2odx"]
 [ext_resource type="Texture2D" uid="uid://cgoccj0ccoucf" path="res://assets/textures/OfficeBackground.png" id="2_3j4db"]
@@ -9,8 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://bbk5decbkcjlq" path="res://assets/textures/ResetButton.png" id="6_0io1d"]
 [ext_resource type="Texture2D" uid="uid://27cf2ylcrnj2" path="res://assets/textures/NotifsBlock.png" id="7_85dyd"]
 [ext_resource type="Texture2D" uid="uid://b5d3k3nfwfwgo" path="res://assets/textures/CoreButton.png" id="8_dvrb8"]
-[ext_resource type="PackedScene" uid="uid://dfcdgtpjlknki" path="res://scenes/game/Cams/core.tscn" id="9_58l0b"]
+[ext_resource type="PackedScene" uid="uid://dfcdgtpjlknki" path="res://scenes/game/core.tscn" id="9_58l0b"]
 [ext_resource type="PackedScene" uid="uid://bljy3weyh265a" path="res://scenes/game/MapScan.tscn" id="11_clt4o"]
+[ext_resource type="PackedScene" uid="uid://bxlfv53p8ljir" path="res://scenes/game/MapParch.tscn" id="12_0io1d"]
+[ext_resource type="PackedScene" uid="uid://bpwfynnru0vry" path="res://scenes/game/MapParch_3.tscn" id="13_85dyd"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -98,9 +100,6 @@ offset_top = -14.0
 offset_right = -1445.0
 offset_bottom = 24.0
 
-[node name="Control" parent="." instance=ExtResource("3_26ubm")]
-layout_mode = 1
-
 [node name="HUD" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 1344.0
@@ -147,7 +146,28 @@ theme_override_font_sizes/font_size = 34
 text = "Abort Mission
 "
 
-[node name="Control2" parent="." instance=ExtResource("11_clt4o")]
+[node name="time" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = -943.0
+offset_top = -104.0
+offset_right = -488.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 140
+
+[node name="MapBase" parent="." instance=ExtResource("3_26ubm")]
+layout_mode = 1
+offset_left = -4.0
+offset_right = -4.0
+
+[node name="MapScan" parent="." instance=ExtResource("11_clt4o")]
+visible = false
+layout_mode = 1
+
+[node name="MapParch" parent="." instance=ExtResource("12_0io1d")]
+visible = false
+layout_mode = 1
+
+[node name="MapParch3" parent="." instance=ExtResource("13_85dyd")]
 visible = false
 layout_mode = 1
 

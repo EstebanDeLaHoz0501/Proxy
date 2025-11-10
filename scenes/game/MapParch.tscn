@@ -1,0 +1,206 @@
+[gd_scene load_steps=11 format=3 uid="uid://bxlfv53p8ljir"]
+
+[ext_resource type="Script" uid="uid://bn8m61ww3i37r" path="res://scripts/nodes/MapParch.gd" id="1_aquni"]
+[ext_resource type="Texture2D" uid="uid://7jh6116ytpdo" path="res://assets/textures/CameraBg.png" id="1_w7ogq"]
+[ext_resource type="Texture2D" uid="uid://cgoccj0ccoucf" path="res://assets/textures/OfficeBackground.png" id="2_aquni"]
+[ext_resource type="Texture2D" uid="uid://e6gf0tudqohy" path="res://assets/textures/Minimap.png" id="3_uji7u"]
+[ext_resource type="Script" uid="uid://bb16xxu50o2i7" path="res://scripts/nodes/CamParch.gd" id="5_uji7u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ux36"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x0eox"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nljtu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6b7f"]
+bg_color = Color(0.11216224, 0.20027915, 0.43604127, 0.49019608)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hkto2"]
+
+[node name="MapParch" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aquni")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -0.9958496
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_w7ogq")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 415.0
+offset_top = 167.0
+offset_right = -215.0
+offset_bottom = -361.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_aquni")
+expand_mode = 1
+
+[node name="map" type="TextureRect" parent="TextureRect/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.0
+offset_top = -248.00208
+offset_right = 265.0
+offset_bottom = 263.99792
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_uji7u")
+
+[node name="CamParch1" type="Button" parent="TextureRect/TextureRect2/map"]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 12.0
+offset_right = 311.0
+offset_bottom = 125.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7ux36")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x0eox")
+script = ExtResource("5_uji7u")
+
+[node name="CamParch2" type="Button" parent="TextureRect/TextureRect2/map"]
+layout_mode = 0
+offset_left = 109.5
+offset_top = 145.0
+offset_right = 193.0
+offset_bottom = 229.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nljtu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x0eox")
+script = ExtResource("5_uji7u")
+
+[node name="CamParch3" type="Button" parent="TextureRect/TextureRect2/map"]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 129.0
+offset_right = 417.0
+offset_bottom = 242.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_d6b7f")
+disabled = true
+
+[node name="CamParch4" type="Button" parent="TextureRect/TextureRect2/map"]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 223.0
+offset_right = 309.0
+offset_bottom = 336.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_d6b7f")
+disabled = true
+
+[node name="CamParch5" type="Button" parent="TextureRect/TextureRect2/map"]
+layout_mode = 0
+offset_left = 382.0
+offset_top = 255.0
+offset_right = 494.0
+offset_bottom = 368.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_d6b7f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_d6b7f")
+disabled = true
+
+[node name="ProgressBar" type="ProgressBar" parent="TextureRect/TextureRect2/map"]
+visible = false
+layout_mode = 0
+offset_left = 392.0
+offset_top = 473.0
+offset_right = 623.0
+offset_bottom = 506.0
+theme_override_font_sizes/font_size = 20
+
+[node name="VolverMapParch" type="Button" parent="TextureRect/TextureRect2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -794.0
+offset_top = -259.00208
+offset_right = -625.0
+offset_bottom = -147.00208
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hkto2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hkto2")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hkto2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hkto2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_hkto2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_hkto2")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_hkto2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hkto2")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_hkto2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hkto2")
+text = "X"
+
+[connection signal="button_down" from="TextureRect/TextureRect2/map/CamParch1" to="TextureRect/TextureRect2/map/CamParch1" method="_on_button_down"]
+[connection signal="button_up" from="TextureRect/TextureRect2/map/CamParch1" to="TextureRect/TextureRect2/map/CamParch1" method="_on_button_up"]
+[connection signal="button_down" from="TextureRect/TextureRect2/map/CamParch2" to="TextureRect/TextureRect2/map/CamParch2" method="_on_button_down"]
+[connection signal="button_up" from="TextureRect/TextureRect2/map/CamParch2" to="TextureRect/TextureRect2/map/CamParch2" method="_on_button_up"]
+[connection signal="pressed" from="TextureRect/TextureRect2/VolverMapParch" to="." method="_on_volver_map_parch_pressed"]

@@ -1,17 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://bljy3weyh265a"]
+[gd_scene load_steps=10 format=3 uid="uid://bljy3weyh265a"]
 
 [ext_resource type="Script" uid="uid://2iyajvjl7jb7" path="res://scripts/nodes/MapScan.gd" id="1_bm6mr"]
 [ext_resource type="Texture2D" uid="uid://7jh6116ytpdo" path="res://assets/textures/CameraBg.png" id="2_rk26y"]
 [ext_resource type="Texture2D" uid="uid://cgoccj0ccoucf" path="res://assets/textures/OfficeBackground.png" id="3_lnepf"]
 [ext_resource type="Texture2D" uid="uid://e6gf0tudqohy" path="res://assets/textures/Minimap.png" id="4_bjjtj"]
+[ext_resource type="Script" uid="uid://q1mp2vgoue5o" path="res://scripts/nodes/cam_scan.gd" id="5_lnepf"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sl4ap"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lnepf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yrgh7"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sl4ap"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ahkga"]
 
-[node name="Control" type="Control"]
+[node name="MapScan" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,9 +28,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 11.0
 offset_top = -1.0
-offset_right = 11.0
 offset_bottom = -0.9958496
 grow_horizontal = 2
 grow_vertical = 2
@@ -65,11 +66,11 @@ texture = ExtResource("4_bjjtj")
 
 [node name="CamScan1" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
-offset_left = 209.5
-offset_top = 24.0
-offset_right = 297.0
-offset_bottom = 117.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_sl4ap")
+offset_left = 198.0
+offset_top = 12.0
+offset_right = 311.0
+offset_bottom = 125.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lnepf")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_yrgh7")
@@ -79,6 +80,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yrgh7")
+script = ExtResource("5_lnepf")
 
 [node name="CamScan2" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
@@ -96,6 +98,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yrgh7")
+script = ExtResource("5_lnepf")
 
 [node name="CamScan3" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
@@ -113,6 +116,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yrgh7")
+script = ExtResource("5_lnepf")
 
 [node name="CamScan4" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
@@ -130,6 +134,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yrgh7")
+script = ExtResource("5_lnepf")
 
 [node name="CamScan5" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
@@ -147,6 +152,16 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yrgh7")
+script = ExtResource("5_lnepf")
+
+[node name="ProgressBar" type="ProgressBar" parent="TextureRect/TextureRect2/map"]
+visible = false
+layout_mode = 0
+offset_left = 392.0
+offset_top = 473.0
+offset_right = 623.0
+offset_bottom = 506.0
+theme_override_font_sizes/font_size = 20
 
 [node name="VolverMapScan" type="Button" parent="TextureRect/TextureRect2"]
 layout_mode = 1
@@ -174,4 +189,15 @@ theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ahkga")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ahkga")
 text = "X"
 
+[connection signal="button_down" from="TextureRect/TextureRect2/map/CamScan1" to="." method="_on_cam_scan_1_button_down"]
+[connection signal="button_down" from="TextureRect/TextureRect2/map/CamScan1" to="TextureRect/TextureRect2/map/CamScan1" method="_on_button_down"]
+[connection signal="button_up" from="TextureRect/TextureRect2/map/CamScan1" to="TextureRect/TextureRect2/map/CamScan1" method="_on_button_up"]
+[connection signal="button_down" from="TextureRect/TextureRect2/map/CamScan2" to="TextureRect/TextureRect2/map/CamScan2" method="_on_button_down"]
+[connection signal="button_up" from="TextureRect/TextureRect2/map/CamScan2" to="TextureRect/TextureRect2/map/CamScan2" method="_on_button_up"]
+[connection signal="button_down" from="TextureRect/TextureRect2/map/CamScan3" to="TextureRect/TextureRect2/map/CamScan3" method="_on_button_down"]
+[connection signal="button_up" from="TextureRect/TextureRect2/map/CamScan3" to="TextureRect/TextureRect2/map/CamScan3" method="_on_button_up"]
+[connection signal="button_down" from="TextureRect/TextureRect2/map/CamScan4" to="TextureRect/TextureRect2/map/CamScan4" method="_on_button_down"]
+[connection signal="button_up" from="TextureRect/TextureRect2/map/CamScan4" to="TextureRect/TextureRect2/map/CamScan4" method="_on_button_up"]
+[connection signal="button_down" from="TextureRect/TextureRect2/map/CamScan5" to="TextureRect/TextureRect2/map/CamScan5" method="_on_button_down"]
+[connection signal="button_up" from="TextureRect/TextureRect2/map/CamScan5" to="TextureRect/TextureRect2/map/CamScan5" method="_on_button_up"]
 [connection signal="pressed" from="TextureRect/TextureRect2/VolverMapScan" to="." method="_on_volver_map_scan_pressed"]
