@@ -41,6 +41,7 @@ func _process(delta):
 	# (Opcional) Actualizar el reloj de la noche
 	kits_label.text = str(night_timer.time_left)
 
+
 # --- CONTROLADOR DE ENTRADA ---
 func _on_nodo_dns_pressed(): # Ejemplo de conexión de señal de un nodo del mapa
 	# 1. Avisa al Controlador de CPU que aplique el costo

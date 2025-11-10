@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmigcqdtkctqs"]
+[gd_scene load_steps=12 format=3 uid="uid://bmigcqdtkctqs"]
 
-[ext_resource type="Texture2D" uid="uid://bjrya1po6ohok" path="res://assets/textures/oficina_con_energia.jpg" id="1_jhrcy"]
 [ext_resource type="Script" uid="uid://onjdyq0bcoh1" path="res://scripts/nodes/office.gd" id="1_p2odx"]
+[ext_resource type="Texture2D" uid="uid://cgoccj0ccoucf" path="res://assets/textures/OfficeBackground.png" id="2_3j4db"]
+[ext_resource type="PackedScene" uid="uid://dbb27p3h4ixqw" path="res://scenes/game/MapBase.tscn" id="3_26ubm"]
+[ext_resource type="Texture2D" uid="uid://pukyplq6ga0w" path="res://assets/textures/Clock.png" id="3_58l0b"]
+[ext_resource type="Texture2D" uid="uid://bdxlrj1xsxw53" path="res://assets/textures/PatchBackground.png" id="4_clt4o"]
+[ext_resource type="Texture2D" uid="uid://c5m2j1fhn6jwo" path="res://assets/textures/CpuBackground.png" id="5_f1cpc"]
+[ext_resource type="Texture2D" uid="uid://bbk5decbkcjlq" path="res://assets/textures/ResetButton.png" id="6_0io1d"]
+[ext_resource type="Texture2D" uid="uid://27cf2ylcrnj2" path="res://assets/textures/NotifsBlock.png" id="7_85dyd"]
+[ext_resource type="Texture2D" uid="uid://b5d3k3nfwfwgo" path="res://assets/textures/CoreButton.png" id="8_dvrb8"]
+[ext_resource type="PackedScene" uid="uid://dfcdgtpjlknki" path="res://scenes/game/Cams/core.tscn" id="9_58l0b"]
+[ext_resource type="PackedScene" uid="uid://bljy3weyh265a" path="res://scenes/game/MapScan.tscn" id="11_clt4o"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -12,15 +21,85 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p2odx")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_jhrcy")
+texture = ExtResource("2_3j4db")
 expand_mode = 1
+
+[node name="Clock" type="TextureRect" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_58l0b")
+expand_mode = 1
+
+[node name="Patches" type="TextureRect" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_clt4o")
+expand_mode = 1
+
+[node name="CpuBar" type="TextureRect" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_f1cpc")
+expand_mode = 1
+
+[node name="Reset" type="TextureRect" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_0io1d")
+expand_mode = 1
+
+[node name="Notif" type="TextureRect" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_85dyd")
+expand_mode = 1
+
+[node name="CpuWing" type="TextureRect" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_dvrb8")
+expand_mode = 1
+
+[node name="Control" parent="TextureRect2" instance=ExtResource("9_58l0b")]
+layout_mode = 1
+offset_left = -1445.0
+offset_top = -14.0
+offset_right = -1445.0
+offset_bottom = 24.0
+
+[node name="Control" parent="." instance=ExtResource("3_26ubm")]
+layout_mode = 1
 
 [node name="HUD" type="Control" parent="."]
 anchors_preset = 0
@@ -47,8 +126,11 @@ text = "PARCHES
 
 [node name="cpuBar" type="ProgressBar" parent="HUD"]
 layout_mode = 0
-offset_right = 51.0
-offset_bottom = 46.0
+offset_left = -44.797184
+offset_top = 511.94287
+offset_right = 730.091
+offset_bottom = 628.8721
+rotation = -1.5664457
 
 [node name="buttonBackToMenu" type="Button" parent="HUD"]
 layout_mode = 1
@@ -64,5 +146,9 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 34
 text = "Abort Mission
 "
+
+[node name="Control2" parent="." instance=ExtResource("11_clt4o")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="HUD/buttonBackToMenu" to="." method="_on_button_back_to_menu_pressed"]

@@ -1,0 +1,117 @@
+[gd_scene load_steps=5 format=3 uid="uid://0b0t4lcl6cwi"]
+
+[ext_resource type="Script" uid="uid://g4j1t3yriyme" path="res://scripts/nodes/Cams.gd" id="1_41l8i"]
+[ext_resource type="Texture2D" uid="uid://e6gf0tudqohy" path="res://assets/textures/Minimap.png" id="2_pi16r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xc3n1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_adppa"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_41l8i")
+
+[node name="minimap" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 396.0
+offset_bottom = 403.0
+texture = ExtResource("2_pi16r")
+expand_mode = 1
+
+[node name="Cam1" type="Button" parent="minimap"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 12.0
+offset_right = 204.0
+offset_bottom = 81.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xc3n1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_adppa")
+
+[node name="Cam2" type="Button" parent="minimap"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 92.0
+offset_right = 136.0
+offset_bottom = 161.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xc3n1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_adppa")
+
+[node name="Cam3" type="Button" parent="minimap"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 85.0
+offset_right = 276.0
+offset_bottom = 158.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xc3n1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_adppa")
+
+[node name="Cam4" type="Button" parent="minimap"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 157.0
+offset_right = 201.0
+offset_bottom = 218.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xc3n1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_adppa")
+
+[node name="Cam5" type="Button" parent="minimap"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 175.0
+offset_right = 323.0
+offset_bottom = 245.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xc3n1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_adppa")
+
+[connection signal="pressed" from="minimap/Cam1" to="." method="_on_cam_1_pressed"]
+[connection signal="pressed" from="minimap/Cam2" to="." method="_on_cam_2_pressed"]
+[connection signal="pressed" from="minimap/Cam3" to="." method="_on_cam_3_pressed"]
+[connection signal="pressed" from="minimap/Cam4" to="." method="_on_cam_4_pressed"]
+[connection signal="pressed" from="minimap/Cam5" to="." method="_on_cam_5_pressed"]

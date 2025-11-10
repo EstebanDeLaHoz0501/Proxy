@@ -1,0 +1,177 @@
+[gd_scene load_steps=8 format=3 uid="uid://bljy3weyh265a"]
+
+[ext_resource type="Script" uid="uid://2iyajvjl7jb7" path="res://scripts/nodes/MapScan.gd" id="1_bm6mr"]
+[ext_resource type="Texture2D" uid="uid://7jh6116ytpdo" path="res://assets/textures/CameraBg.png" id="2_rk26y"]
+[ext_resource type="Texture2D" uid="uid://cgoccj0ccoucf" path="res://assets/textures/OfficeBackground.png" id="3_lnepf"]
+[ext_resource type="Texture2D" uid="uid://e6gf0tudqohy" path="res://assets/textures/Minimap.png" id="4_bjjtj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sl4ap"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yrgh7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ahkga"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bm6mr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -1.0
+offset_right = 11.0
+offset_bottom = -0.9958496
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rk26y")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 415.0
+offset_top = 167.0
+offset_right = -215.0
+offset_bottom = -361.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_lnepf")
+expand_mode = 1
+
+[node name="map" type="TextureRect" parent="TextureRect/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.0
+offset_top = -248.00208
+offset_right = 265.0
+offset_bottom = 263.99792
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_bjjtj")
+
+[node name="CamScan1" type="Button" parent="TextureRect/TextureRect2/map"]
+layout_mode = 0
+offset_left = 209.5
+offset_top = 24.0
+offset_right = 297.0
+offset_bottom = 117.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sl4ap")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yrgh7")
+
+[node name="CamScan2" type="Button" parent="TextureRect/TextureRect2/map"]
+layout_mode = 0
+offset_left = 109.5
+offset_top = 145.0
+offset_right = 193.0
+offset_bottom = 229.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sl4ap")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yrgh7")
+
+[node name="CamScan3" type="Button" parent="TextureRect/TextureRect2/map"]
+layout_mode = 0
+offset_left = 312.5
+offset_top = 141.0
+offset_right = 405.0
+offset_bottom = 230.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sl4ap")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yrgh7")
+
+[node name="CamScan4" type="Button" parent="TextureRect/TextureRect2/map"]
+layout_mode = 0
+offset_left = 208.5
+offset_top = 231.0
+offset_right = 310.0
+offset_bottom = 327.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sl4ap")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yrgh7")
+
+[node name="CamScan5" type="Button" parent="TextureRect/TextureRect2/map"]
+layout_mode = 0
+offset_left = 386.5
+offset_top = 269.0
+offset_right = 490.0
+offset_bottom = 365.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sl4ap")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yrgh7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yrgh7")
+
+[node name="VolverMapScan" type="Button" parent="TextureRect/TextureRect2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -794.0
+offset_top = -259.00208
+offset_right = -625.0
+offset_bottom = -147.00208
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ahkga")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ahkga")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ahkga")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ahkga")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ahkga")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ahkga")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ahkga")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ahkga")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ahkga")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ahkga")
+text = "X"
+
+[connection signal="pressed" from="TextureRect/TextureRect2/VolverMapScan" to="." method="_on_volver_map_scan_pressed"]
