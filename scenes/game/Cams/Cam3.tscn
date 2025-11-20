@@ -25,3 +25,17 @@ expand_mode = 1
 
 [node name="Control" parent="Mail" instance=ExtResource("3_28vou")]
 layout_mode = 1
+offset_left = -4.0
+offset_right = -4.0
+
+[node name="ButtonBack3" type="Button" parent="Mail"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.019000001
+anchor_bottom = 0.040000003
+offset_left = 1317.0
+offset_right = 1412.64
+offset_bottom = -7.2000046
+text = "Back to office"
+
+[connection signal="pressed" from="Mail/ButtonBack3" to="." method="_on_button_back_3_pressed"]

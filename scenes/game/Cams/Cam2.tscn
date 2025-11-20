@@ -25,3 +25,13 @@ expand_mode = 1
 
 [node name="Control" parent="Servers" instance=ExtResource("3_0le7e")]
 layout_mode = 1
+
+[node name="ButtonBack2" type="Button" parent="Servers"]
+layout_mode = 0
+offset_left = 1308.0
+offset_top = 1.0
+offset_right = 1440.0
+offset_bottom = 38.0
+text = "Back to office"
+
+[connection signal="pressed" from="Servers/ButtonBack2" to="." method="_on_button_back_2_pressed"]

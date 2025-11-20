@@ -94,9 +94,19 @@ func _on_parch_3_button_pressed():
 	CPULOGIC.aplicar_pulso_cpu(15.0) 
 
 # El escáner usa un kit de parcheo (ficticio, por ahora)
-	Player.use_kit() 
-	Player.use_kit() 
-	Player.use_kit() 
+	Player.ukit() 
+	Player.use_kse_kit() 
+	Player.use_it() 
 
 # Aquí iría la lógica de escaneo visual
 	print("¡Pulso de CPU y Kit aplicado!")
+
+
+func _on_firewall_button_pressed():
+	# Costo inicial: 15%
+	print("LLEGÓ LA SEÑAL DEL FIREWALL (15%)")
+	CPULOGIC.aplicar_pulso_cpu(15.0)
+
+func _on_firewall_tick():
+	# Costo recurrente: 5% cada 3 segundos
+	CPULOGIC.aplicar_pulso_cpu(5.0)

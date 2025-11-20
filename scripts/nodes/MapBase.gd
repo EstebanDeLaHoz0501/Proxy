@@ -34,9 +34,12 @@ func _on_cam_5_pressed() -> void:
 func _on_scanner_pressed() -> void:
 	get_parent().get_node("MapScan").visible = true
 
-
 func _on_parches_pressed() -> void:
 	get_parent().get_node("MapParch").visible = true
 
 func _on_parches3_pressed() -> void:
 	get_parent().get_node("MapParch3").visible = true
+
+func _on_firewalls_pressed() -> void:
+	get_parent().get_node("MapFirewalls").visible = true
+	

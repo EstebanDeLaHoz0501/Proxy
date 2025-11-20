@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bmigcqdtkctqs"]
+[gd_scene load_steps=15 format=3 uid="uid://bmigcqdtkctqs"]
 
 [ext_resource type="Script" uid="uid://onjdyq0bcoh1" path="res://scripts/nodes/office.gd" id="1_p2odx"]
 [ext_resource type="Texture2D" uid="uid://cgoccj0ccoucf" path="res://assets/textures/OfficeBackground.png" id="2_3j4db"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bljy3weyh265a" path="res://scenes/game/MapScan.tscn" id="11_clt4o"]
 [ext_resource type="PackedScene" uid="uid://bxlfv53p8ljir" path="res://scenes/game/MapParch.tscn" id="12_0io1d"]
 [ext_resource type="PackedScene" uid="uid://bpwfynnru0vry" path="res://scenes/game/MapParch_3.tscn" id="13_85dyd"]
+[ext_resource type="PackedScene" uid="uid://ccynnoyy46cul" path="res://scenes/game/MapFirewalls.tscn" id="14_85dyd"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -156,8 +157,10 @@ theme_override_font_sizes/font_size = 140
 
 [node name="MapBase" parent="." instance=ExtResource("3_26ubm")]
 layout_mode = 1
-offset_left = -4.0
-offset_right = -4.0
+
+[node name="MapFirewalls" parent="." instance=ExtResource("14_85dyd")]
+visible = false
+layout_mode = 1
 
 [node name="MapScan" parent="." instance=ExtResource("11_clt4o")]
 visible = false

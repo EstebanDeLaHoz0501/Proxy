@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b6f4q26ivjfqd"]
 
 [ext_resource type="Script" uid="uid://g4j1t3yriyme" path="res://scripts/nodes/Cams.gd" id="1_f7xf8"]
-[ext_resource type="Texture2D" uid="uid://o20gl4m03263" path="res://assets/textures/Cam3Bg.png" id="1_frisn"]
+[ext_resource type="Texture2D" uid="uid://cf7x6og11qul4" path="res://assets/textures/Cam5BgPLACEHOLDER.jpg" id="2_f7xf8"]
 [ext_resource type="PackedScene" uid="uid://0b0t4lcl6cwi" path="res://scenes/game/Cams/minimap.tscn" id="3_f7xf8"]
 
 [node name="Control" type="Control"]
@@ -13,15 +13,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f7xf8")
 
-[node name="Firewall" type="TextureRect" parent="."]
+[node name="Room" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_frisn")
+texture = ExtResource("2_f7xf8")
 expand_mode = 1
 
-[node name="Control" parent="Firewall" instance=ExtResource("3_f7xf8")]
+[node name="Control" parent="Room" instance=ExtResource("3_f7xf8")]
 layout_mode = 1
+
+[node name="ButtonBack5" type="Button" parent="Room"]
+layout_mode = 0
+offset_left = 1295.0
+offset_right = 1440.0
+offset_bottom = 43.0
+text = "Back to office"
+
+[connection signal="pressed" from="Room/ButtonBack5" to="." method="_on_button_back_5_pressed"]

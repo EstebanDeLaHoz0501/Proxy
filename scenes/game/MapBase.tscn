@@ -83,7 +83,9 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -4.0
 offset_top = -765.0
+offset_right = -4.0
 offset_bottom = -765.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -94,10 +96,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 766.0
-offset_right = 4.0
-offset_bottom = 766.00415
+offset_left = 11.0
+offset_top = -1.0
+offset_right = 11.0
+offset_bottom = -0.9958496
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_4ov10")
@@ -251,6 +253,15 @@ offset_bottom = 165.00208
 theme_override_font_sizes/font_size = 30
 text = "Scanner"
 
+[node name="Firewalls" type="Button" parent="TextureRect/TextureRect2"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 291.0
+offset_right = 243.0
+offset_bottom = 385.0
+theme_override_font_sizes/font_size = 30
+text = "Firewalls"
+
 [node name="Parches" type="Button" parent="TextureRect/TextureRect2"]
 layout_mode = 0
 offset_left = 13.0
@@ -274,3 +285,4 @@ autoplay = "RESET"
 [connection signal="pressed" from="TextureRect/TextureRect2/map/Cam5" to="." method="_on_cam_5_pressed"]
 [connection signal="pressed" from="TextureRect/TextureRect2/CerrarMap2" to="." method="_on_cerrar_map_2_pressed"]
 [connection signal="pressed" from="TextureRect/TextureRect2/Scanner" to="." method="_on_scanner_pressed"]
+[connection signal="pressed" from="TextureRect/TextureRect2/Firewalls" to="." method="_on_firewalls_pressed"]

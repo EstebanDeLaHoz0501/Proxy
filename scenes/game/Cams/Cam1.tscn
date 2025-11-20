@@ -25,3 +25,13 @@ expand_mode = 1
 
 [node name="Control" parent="Firewall" instance=ExtResource("3_42e4x")]
 layout_mode = 1
+
+[node name="ButtonBack1" type="Button" parent="Firewall"]
+layout_mode = 0
+offset_left = 1297.0
+offset_top = 1.0
+offset_right = 1439.0
+offset_bottom = 37.0
+text = "Back to office"
+
+[connection signal="pressed" from="Firewall/ButtonBack1" to="." method="_on_button_back_1_pressed"]
