@@ -134,5 +134,5 @@ text = "back
 "
 autowrap_trim_flags = 0
 
-[connection signal="pressed" from="VBoxContainer/night1" to="." method="_on_night1_pressed"]
+[connection signal="pressed" from="VBoxContainer/night1" to="." method="_on_night_1_pressed"]
 [connection signal="pressed" from="backMenu" to="." method="_on_regresar_menu_pressed"]

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://7jh6116ytpdo" path="res://assets/textures/CameraBg.png" id="1_w7ogq"]
 [ext_resource type="Texture2D" uid="uid://cgoccj0ccoucf" path="res://assets/textures/OfficeBackground.png" id="2_aquni"]
 [ext_resource type="Texture2D" uid="uid://e6gf0tudqohy" path="res://assets/textures/Minimap.png" id="3_uji7u"]
-[ext_resource type="Script" uid="uid://bb16xxu50o2i7" path="res://scripts/nodes/CamParch.gd" id="5_uji7u"]
+[ext_resource type="Script" uid="uid://bb16xxu50o2i7" path="res://scripts/Action/CamParch.gd" id="5_uji7u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ux36"]
 

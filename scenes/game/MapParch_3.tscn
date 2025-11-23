@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://7jh6116ytpdo" path="res://assets/textures/CameraBg.png" id="1_kn8l6"]
 [ext_resource type="Texture2D" uid="uid://cgoccj0ccoucf" path="res://assets/textures/OfficeBackground.png" id="2_c1la6"]
 [ext_resource type="Texture2D" uid="uid://e6gf0tudqohy" path="res://assets/textures/Minimap.png" id="3_i4pdb"]
-[ext_resource type="Script" uid="uid://coxgf8ulp8uu3" path="res://scripts/nodes/CamParch3.gd" id="4_7ern4"]
+[ext_resource type="Script" uid="uid://coxgf8ulp8uu3" path="res://scripts/Action/CamParch3.gd" id="4_7ern4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhpch"]
 bg_color = Color(0.11216224, 0.20027915, 0.43604127, 0.49019608)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bmigcqdtkctqs"]
+[gd_scene load_steps=18 format=3 uid="uid://bmigcqdtkctqs"]
 
 [ext_resource type="Script" uid="uid://onjdyq0bcoh1" path="res://scripts/nodes/office.gd" id="1_p2odx"]
 [ext_resource type="Texture2D" uid="uid://cgoccj0ccoucf" path="res://assets/textures/OfficeBackground.png" id="2_3j4db"]
@@ -13,7 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://bljy3weyh265a" path="res://scenes/game/MapScan.tscn" id="11_clt4o"]
 [ext_resource type="PackedScene" uid="uid://bxlfv53p8ljir" path="res://scenes/game/MapParch.tscn" id="12_0io1d"]
 [ext_resource type="PackedScene" uid="uid://bpwfynnru0vry" path="res://scenes/game/MapParch_3.tscn" id="13_85dyd"]
+[ext_resource type="Script" uid="uid://2iyajvjl7jb7" path="res://scripts/nodes/MapScan.gd" id="13_rlm6l"]
 [ext_resource type="PackedScene" uid="uid://ccynnoyy46cul" path="res://scenes/game/MapFirewalls.tscn" id="14_85dyd"]
+[ext_resource type="Script" uid="uid://bn8m61ww3i37r" path="res://scripts/nodes/MapParch.gd" id="15_lsjq0"]
+[ext_resource type="Script" uid="uid://bijk8t6wr5u1v" path="res://scripts/nodes/MapParch3.gd" id="17_76ox8"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -162,16 +165,34 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
-[node name="MapScan" parent="." instance=ExtResource("11_clt4o")]
+[node name="MapScan" type="Control" parent="." instance=ExtResource("11_clt4o")]
 visible = false
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("13_rlm6l")
 
-[node name="MapParch" parent="." instance=ExtResource("12_0io1d")]
+[node name="MapParch" type="Control" parent="." instance=ExtResource("12_0io1d")]
 visible = false
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_lsjq0")
 
-[node name="MapParch3" parent="." instance=ExtResource("13_85dyd")]
+[node name="MapParch3" type="Control" parent="." instance=ExtResource("13_85dyd")]
 visible = false
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_76ox8")
 
 [connection signal="pressed" from="HUD/buttonBackToMenu" to="." method="_on_button_back_to_menu_pressed"]

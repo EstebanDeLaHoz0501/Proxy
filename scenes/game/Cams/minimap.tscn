@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://0b0t4lcl6cwi"]
 
-[ext_resource type="Script" uid="uid://g4j1t3yriyme" path="res://scripts/nodes/Cams.gd" id="1_41l8i"]
+[ext_resource type="Script" uid="uid://g4j1t3yriyme" path="res://scripts/Action/Cams.gd" id="1_41l8i"]
 [ext_resource type="Texture2D" uid="uid://e6gf0tudqohy" path="res://assets/textures/Minimap.png" id="2_pi16r"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xc3n1"]

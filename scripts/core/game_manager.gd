@@ -57,3 +57,15 @@ func load_night_data(night_number: int):
 		print("ERROR: Falló al cargar archivo de reglas en GameManager: " + path)
 
 # Tu función 'start_night' antigua ya no se necesita si usamos esta nueva.
+
+@onready var MapManager = get_node("/root/MAPMANAGER") # Asumiendo que es un Autoload
+
+# En res://scripts/core/malware.gd
+
+
+func _ready():
+	# Asegúrate de que el mapa se cree primero
+	MapManager.crear_mapa_backend() 
+	MapManager.spawn_malware_inicial() # ¡Soltamos a la bestia!
+	# Llama a la función de spawn, que ahora vive en MapManager
+	
