@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cvev7eo20iaa5"]
 
-[ext_resource type="Script" uid="uid://g4j1t3yriyme" path="res://scripts/Action/Cams.gd" id="1_m20n7"]
+[ext_resource type="Script" uid="uid://g4j1t3yriyme" path="res://residuos/Cams.gd" id="1_m20n7"]
 [ext_resource type="Texture2D" uid="uid://dymqq1eti82h0" path="res://assets/textures/Cam4Bg.png" id="2_m20n7"]
-[ext_resource type="PackedScene" uid="uid://0b0t4lcl6cwi" path="res://scenes/game/Cams/minimap.tscn" id="3_m20n7"]
+[ext_resource type="PackedScene" uid="uid://0b0t4lcl6cwi" path="res://residuos/Cams/minimap.tscn" id="3_m20n7"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

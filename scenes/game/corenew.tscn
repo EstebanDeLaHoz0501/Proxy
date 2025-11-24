@@ -1,0 +1,174 @@
+[gd_scene load_steps=13 format=3 uid="uid://bsblk4yys6llb"]
+
+[ext_resource type="Texture2D" uid="uid://cgoccj0ccoucf" path="res://assets/textures/OfficeBackground.png" id="1_67nli"]
+[ext_resource type="Script" uid="uid://cwju6lvjl4a2i" path="res://scripts/nodes/corenew.gd" id="1_151xw"]
+[ext_resource type="Texture2D" uid="uid://buos7hurvlvhm" path="res://assets/textures/Core.png" id="2_151xw"]
+[ext_resource type="Texture2D" uid="uid://b5d3k3nfwfwgo" path="res://assets/textures/CoreButton.png" id="3_yy02h"]
+[ext_resource type="Texture2D" uid="uid://dikxp8eryds0a" path="res://assets/textures/SpyDerBody.png" id="5_tdpl7"]
+[ext_resource type="Texture2D" uid="uid://cifwd022hvjx7" path="res://assets/textures/SpyDerHead.png" id="6_4bsqr"]
+[ext_resource type="Texture2D" uid="uid://buyi7xcd0n55q" path="res://assets/textures/SpyIzqBody.png" id="7_kgs38"]
+[ext_resource type="Texture2D" uid="uid://diwbrrgdqak5j" path="res://assets/textures/SpyIzqHead.png" id="8_6qe4o"]
+[ext_resource type="Texture2D" uid="uid://dpprswt0jkdhs" path="res://assets/textures/SpyMidBody.png" id="9_y6wkq"]
+[ext_resource type="Texture2D" uid="uid://ciiwed75yqx2o" path="res://assets/textures/SpyMidHead.png" id="10_u5l5s"]
+[ext_resource type="Script" uid="uid://brtfby05qf8e7" path="res://scripts/Action/map_node_button.gd" id="11_4bsqr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vrrm3"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_151xw")
+
+[node name="fondo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -165.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_67nli")
+expand_mode = 1
+
+[node name="core" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_151xw")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_yy02h")
+expand_mode = 1
+
+[node name="VolverCore" type="Button" parent="TextureRect3"]
+layout_mode = 0
+offset_top = 298.0
+offset_right = 72.0
+offset_bottom = 916.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vrrm3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vrrm3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_vrrm3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vrrm3")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_vrrm3")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_vrrm3")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vrrm3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vrrm3")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vrrm3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vrrm3")
+
+[node name="sp1" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_tdpl7")
+expand_mode = 1
+
+[node name="sp11" type="TextureRect" parent="sp1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_4bsqr")
+expand_mode = 1
+
+[node name="sp2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_kgs38")
+expand_mode = 1
+
+[node name="sp21" type="TextureRect" parent="sp2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_6qe4o")
+expand_mode = 1
+
+[node name="sp3" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_y6wkq")
+expand_mode = 1
+
+[node name="sp31" type="TextureRect" parent="sp3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_u5l5s")
+expand_mode = 1
+
+[node name="NucleoScan" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -197.0
+offset_top = 56.0
+offset_right = 197.0
+offset_bottom = 195.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "SCAN"
+script = ExtResource("11_4bsqr")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1005.0
+offset_top = 73.0
+offset_right = 1401.0
+offset_bottom = 160.0
+
+[node name="PurgLog" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -197.0
+offset_top = -187.0
+offset_right = 197.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "PURGLOG"
+script = ExtResource("11_4bsqr")
+
+[connection signal="pressed" from="TextureRect3/VolverCore" to="." method="_on_volver_core_pressed"]

@@ -78,10 +78,10 @@ func spawn_malware_inicial():
 	var popup = MalwareBase.new("PopUp", nodo_pasarela)
 	
 	# B. Spawn en SERVIDOR MENSAJERÍA (Nodo 3: Phishing)
-	var phishing = MalwareBase.new("Phishing", nodo_serv_msg)
+	var phishing = Phishing.new(nodo_serv_msg)
 
 	# C. Spawn en NÚCLEO (Nodo 7: Spyware)
-	var spyware = MalwareBase.new("Spyware", nodo_nucleo)
+	var spyware = Spyware.new(nodo_nucleo)
 	
 	# 3. GUARDAR TODOS LOS MALWARES ACTIVOS
 	# Aquí deberías usar tu Lista Enlazada, pero para simplicidad, usamos Array:
@@ -124,7 +124,7 @@ func _ready():
 # ... (Igual que antes: crear mapa, calcular distancias, timer, spawn)
 	crear_mapa_backend()         # Crea los nodos
 	calcular_distancia_al_nucleo() # Calcula rutas
-	spawn_malware_inicial()      # Pone los bichos
+	#spawn_malware_inicial()      # Pone los bichos
 	
 # Tu array que ahora contendrá los Malwares creados por spawn_malware_inicial()
 

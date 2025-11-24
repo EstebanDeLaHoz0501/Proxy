@@ -1,28 +1,100 @@
-[gd_scene load_steps=18 format=3 uid="uid://bmigcqdtkctqs"]
+[gd_scene load_steps=31 format=3 uid="uid://bmigcqdtkctqs"]
 
 [ext_resource type="Script" uid="uid://onjdyq0bcoh1" path="res://scripts/nodes/office.gd" id="1_p2odx"]
 [ext_resource type="Texture2D" uid="uid://cgoccj0ccoucf" path="res://assets/textures/OfficeBackground.png" id="2_3j4db"]
-[ext_resource type="PackedScene" uid="uid://dbb27p3h4ixqw" path="res://scenes/game/MapBase.tscn" id="3_26ubm"]
 [ext_resource type="Texture2D" uid="uid://pukyplq6ga0w" path="res://assets/textures/Clock.png" id="3_58l0b"]
 [ext_resource type="Texture2D" uid="uid://bdxlrj1xsxw53" path="res://assets/textures/PatchBackground.png" id="4_clt4o"]
 [ext_resource type="Texture2D" uid="uid://c5m2j1fhn6jwo" path="res://assets/textures/CpuBackground.png" id="5_f1cpc"]
 [ext_resource type="Texture2D" uid="uid://bbk5decbkcjlq" path="res://assets/textures/ResetButton.png" id="6_0io1d"]
 [ext_resource type="Texture2D" uid="uid://27cf2ylcrnj2" path="res://assets/textures/NotifsBlock.png" id="7_85dyd"]
 [ext_resource type="Texture2D" uid="uid://b5d3k3nfwfwgo" path="res://assets/textures/CoreButton.png" id="8_dvrb8"]
-[ext_resource type="PackedScene" uid="uid://dfcdgtpjlknki" path="res://scenes/game/core.tscn" id="9_58l0b"]
+[ext_resource type="PackedScene" uid="uid://dfcdgtpjlknki" path="res://scenes/game/corebutton.tscn" id="9_58l0b"]
+[ext_resource type="Texture2D" uid="uid://7jh6116ytpdo" path="res://assets/textures/CameraBg.png" id="10_j4pfl"]
+[ext_resource type="Texture2D" uid="uid://e6gf0tudqohy" path="res://assets/textures/Minimap.png" id="11_0ybno"]
 [ext_resource type="PackedScene" uid="uid://bljy3weyh265a" path="res://scenes/game/MapScan.tscn" id="11_clt4o"]
 [ext_resource type="PackedScene" uid="uid://bxlfv53p8ljir" path="res://scenes/game/MapParch.tscn" id="12_0io1d"]
-[ext_resource type="PackedScene" uid="uid://bpwfynnru0vry" path="res://scenes/game/MapParch_3.tscn" id="13_85dyd"]
-[ext_resource type="Script" uid="uid://2iyajvjl7jb7" path="res://scripts/nodes/MapScan.gd" id="13_rlm6l"]
+[ext_resource type="PackedScene" uid="uid://bpwfynnru0vry" path="res://residuos/MapParch_3.tscn" id="13_85dyd"]
 [ext_resource type="PackedScene" uid="uid://ccynnoyy46cul" path="res://scenes/game/MapFirewalls.tscn" id="14_85dyd"]
-[ext_resource type="Script" uid="uid://bn8m61ww3i37r" path="res://scripts/nodes/MapParch.gd" id="15_lsjq0"]
-[ext_resource type="Script" uid="uid://bijk8t6wr5u1v" path="res://scripts/nodes/MapParch3.gd" id="17_76ox8"]
+[ext_resource type="PackedScene" uid="uid://bsblk4yys6llb" path="res://scenes/game/corenew.tscn" id="15_dvrb8"]
+[ext_resource type="Texture2D" uid="uid://bqjy2bidlaw6d" path="res://assets/textures/Cam1Bg.png" id="18_5e2el"]
+[ext_resource type="Texture2D" uid="uid://dcjfyyighr87m" path="res://assets/textures/Cam2Bg.png" id="19_svq3o"]
+[ext_resource type="Texture2D" uid="uid://o20gl4m03263" path="res://assets/textures/Cam3Bg.png" id="20_5io0l"]
+[ext_resource type="Texture2D" uid="uid://dymqq1eti82h0" path="res://assets/textures/Cam4Bg.png" id="21_euaow"]
+[ext_resource type="Texture2D" uid="uid://cf7x6og11qul4" path="res://assets/textures/Cam5BgPLACEHOLDER.jpg" id="22_3jhh0"]
 
-[node name="Control" type="Control"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_op60s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i2rva"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3828x"]
+
+[sub_resource type="Animation" id="Animation_0ybno"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-10, -764)]
+}
+
+[sub_resource type="Animation" id="Animation_o2hfa"]
+resource_name = "close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.36602154, 0.39229205),
+"update": 0,
+"values": [Vector2(-8, 0), Vector2(-7, -764)]
+}
+
+[sub_resource type="Animation" id="Animation_j4pfl"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.39229205, 0.36602154),
+"update": 0,
+"values": [Vector2(-7, -764), Vector2(-8, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5e2el"]
+_data = {
+&"RESET": SubResource("Animation_0ybno"),
+&"close": SubResource("Animation_o2hfa"),
+&"open": SubResource("Animation_j4pfl")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qeu5p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_750y0"]
+
+[node name="Oficina" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 1.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p2odx")
@@ -87,6 +159,21 @@ grow_vertical = 2
 texture = ExtResource("7_85dyd")
 expand_mode = 1
 
+[node name="Label" type="Label" parent="TextureRect2/Notif"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -332.0
+offset_top = -389.0
+offset_right = 395.0
+offset_bottom = -138.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 60
+
 [node name="CpuWing" type="TextureRect" parent="TextureRect2"]
 layout_mode = 1
 anchors_preset = 15
@@ -97,7 +184,7 @@ grow_vertical = 2
 texture = ExtResource("8_dvrb8")
 expand_mode = 1
 
-[node name="Control" parent="TextureRect2" instance=ExtResource("9_58l0b")]
+[node name="corebutton" parent="TextureRect2" instance=ExtResource("9_58l0b")]
 layout_mode = 1
 offset_left = -1445.0
 offset_top = -14.0
@@ -131,7 +218,7 @@ text = "PARCHES
 layout_mode = 0
 offset_left = -44.797184
 offset_top = 511.94287
-offset_right = 730.091
+offset_right = 730.0909
 offset_bottom = 628.8721
 rotation = -1.5664457
 
@@ -158,34 +245,225 @@ offset_right = -488.0
 offset_bottom = 85.0
 theme_override_font_sizes/font_size = 140
 
-[node name="MapBase" parent="." instance=ExtResource("3_26ubm")]
+[node name="MapBase" type="Control" parent="."]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -764.0
+offset_right = -10.0
+offset_bottom = -764.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MapBase"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -1.0
+offset_right = 11.0
+offset_bottom = -0.9958496
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_j4pfl")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="MapBase/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 415.0
+offset_top = 167.0
+offset_right = -215.0
+offset_bottom = -361.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3j4db")
+expand_mode = 1
+
+[node name="map" type="TextureRect" parent="MapBase/TextureRect/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.5
+offset_top = -248.0
+offset_right = 372.5
+offset_bottom = 264.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_0ybno")
+
+[node name="Cam1" type="Button" parent="MapBase/TextureRect/TextureRect2/map"]
+layout_mode = 0
+offset_left = 209.5
+offset_top = 24.0
+offset_right = 297.0
+offset_bottom = 117.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_op60s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i2rva")
+
+[node name="Cam2" type="Button" parent="MapBase/TextureRect/TextureRect2/map"]
+layout_mode = 0
+offset_left = 109.5
+offset_top = 145.0
+offset_right = 193.0
+offset_bottom = 229.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_op60s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i2rva")
+
+[node name="Cam3" type="Button" parent="MapBase/TextureRect/TextureRect2/map"]
+layout_mode = 0
+offset_left = 312.5
+offset_top = 141.0
+offset_right = 405.0
+offset_bottom = 230.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_op60s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i2rva")
+
+[node name="Cam4" type="Button" parent="MapBase/TextureRect/TextureRect2/map"]
+layout_mode = 0
+offset_left = 208.5
+offset_top = 231.0
+offset_right = 310.0
+offset_bottom = 327.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_op60s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i2rva")
+
+[node name="Cam5" type="Button" parent="MapBase/TextureRect/TextureRect2/map"]
+layout_mode = 0
+offset_left = 386.5
+offset_top = 269.0
+offset_right = 490.0
+offset_bottom = 365.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_op60s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i2rva")
+
+[node name="CerrarMap2" type="Button" parent="MapBase/TextureRect/TextureRect2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -571.0
+offset_top = 319.99792
+offset_right = 40.0
+offset_bottom = 390.99792
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3828x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3828x")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_3828x")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3828x")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_3828x")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_3828x")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_3828x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3828x")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_3828x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3828x")
+
+[node name="Scanner" type="Button" parent="MapBase/TextureRect/TextureRect2"]
+layout_mode = 0
+offset_left = 12.5
+offset_top = 71.002075
+offset_right = 242.5
+offset_bottom = 165.00208
+theme_override_font_sizes/font_size = 30
+text = "Scanner"
+
+[node name="Firewalls" type="Button" parent="MapBase/TextureRect/TextureRect2"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 291.0
+offset_right = 243.0
+offset_bottom = 385.0
+theme_override_font_sizes/font_size = 30
+text = "Firewalls"
+
+[node name="Parches" type="Button" parent="MapBase/TextureRect/TextureRect2"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 187.0
+offset_right = 243.0
+offset_bottom = 281.0
+theme_override_font_sizes/font_size = 20
+text = "Parche / Parche lvl3 "
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MapBase"]
+libraries = {
+&"": SubResource("AnimationLibrary_5e2el")
+}
+autoplay = "RESET"
 
 [node name="MapFirewalls" parent="." instance=ExtResource("14_85dyd")]
 visible = false
 layout_mode = 1
 
-[node name="MapScan" type="Control" parent="." instance=ExtResource("11_clt4o")]
+[node name="MapScan" parent="." instance=ExtResource("11_clt4o")]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("13_rlm6l")
 
-[node name="MapParch" type="Control" parent="." instance=ExtResource("12_0io1d")]
+[node name="MapParch" parent="." instance=ExtResource("12_0io1d")]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("15_lsjq0")
 
-[node name="MapParch3" type="Control" parent="." instance=ExtResource("13_85dyd")]
+[node name="MapParch3" parent="." instance=ExtResource("13_85dyd")]
+visible = false
+layout_mode = 1
+
+[node name="corenew" parent="." instance=ExtResource("15_dvrb8")]
+visible = false
+layout_mode = 1
+
+[node name="MapCams" type="Control" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -193,6 +471,177 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("17_76ox8")
+
+[node name="Cam1" type="TextureRect" parent="MapCams"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_5e2el")
+expand_mode = 1
+
+[node name="Cam2" type="TextureRect" parent="MapCams"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_svq3o")
+expand_mode = 1
+
+[node name="Cam3" type="TextureRect" parent="MapCams"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_5io0l")
+expand_mode = 1
+
+[node name="Cam4" type="TextureRect" parent="MapCams"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_euaow")
+expand_mode = 1
+
+[node name="Cam5" type="TextureRect" parent="MapCams"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("22_3jhh0")
+expand_mode = 1
+
+[node name="ButtonBackCams" type="Button" parent="MapCams"]
+layout_mode = 0
+offset_left = 1297.0
+offset_top = 1.0
+offset_right = 1439.0
+offset_bottom = 37.0
+text = "Back to office"
+
+[node name="minimap" type="TextureRect" parent="MapCams"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 396.0
+offset_bottom = 403.0
+texture = ExtResource("11_0ybno")
+expand_mode = 1
+
+[node name="Cam1" type="Button" parent="MapCams/minimap"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 12.0
+offset_right = 204.0
+offset_bottom = 81.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qeu5p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_750y0")
+
+[node name="Cam2" type="Button" parent="MapCams/minimap"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 92.0
+offset_right = 136.0
+offset_bottom = 161.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qeu5p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_750y0")
+
+[node name="Cam3" type="Button" parent="MapCams/minimap"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 85.0
+offset_right = 276.0
+offset_bottom = 158.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qeu5p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_750y0")
+
+[node name="Cam4" type="Button" parent="MapCams/minimap"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 157.0
+offset_right = 201.0
+offset_bottom = 218.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qeu5p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_750y0")
+
+[node name="Cam5" type="Button" parent="MapCams/minimap"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 175.0
+offset_right = 323.0
+offset_bottom = 245.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qeu5p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_750y0")
 
 [connection signal="pressed" from="HUD/buttonBackToMenu" to="." method="_on_button_back_to_menu_pressed"]
+[connection signal="pressed" from="MapBase/TextureRect/TextureRect2/map/Cam1" to="." method="_on_cam_1_pressed"]
+[connection signal="pressed" from="MapBase/TextureRect/TextureRect2/map/Cam2" to="." method="_on_cam_2_pressed"]
+[connection signal="pressed" from="MapBase/TextureRect/TextureRect2/map/Cam3" to="." method="_on_cam_3_pressed"]
+[connection signal="pressed" from="MapBase/TextureRect/TextureRect2/map/Cam4" to="." method="_on_cam_4_pressed"]
+[connection signal="pressed" from="MapBase/TextureRect/TextureRect2/map/Cam5" to="." method="_on_cam_5_pressed"]
+[connection signal="pressed" from="MapBase/TextureRect/TextureRect2/CerrarMap2" to="." method="_on_cerrar_map_2_pressed"]
+[connection signal="pressed" from="MapBase/TextureRect/TextureRect2/Scanner" to="." method="_on_scanner_pressed"]
+[connection signal="pressed" from="MapBase/TextureRect/TextureRect2/Firewalls" to="." method="_on_firewalls_pressed"]
+[connection signal="pressed" from="MapBase/TextureRect/TextureRect2/Parches" to="." method="_on_parches_pressed"]
+[connection signal="pressed" from="MapCams/ButtonBackCams" to="." method="_on_button_back_cams_pressed"]
+[connection signal="pressed" from="MapCams/minimap/Cam1" to="." method="_on_cam_1_pressed"]
+[connection signal="pressed" from="MapCams/minimap/Cam2" to="." method="_on_cam_2_pressed"]
+[connection signal="pressed" from="MapCams/minimap/Cam3" to="." method="_on_cam_3_pressed"]
+[connection signal="pressed" from="MapCams/minimap/Cam4" to="." method="_on_cam_4_pressed"]
+[connection signal="pressed" from="MapCams/minimap/Cam5" to="." method="_on_cam_5_pressed"]

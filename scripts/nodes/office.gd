@@ -5,6 +5,7 @@ extends Control # O el nodo raíz de tu oficina
 @onready var night_timer = $HUD/nightTimer # Ajusta esta ruta a tu Timer
 @onready var kits_label = $HUD/kitsLabel # Ajusta esta ruta a tu Label de texto
 @onready var wallclock = $HUD/time
+@onready var notification = $TextureRect2/Notif/Label
 # --- Referencias a los CONTROLADORES GLOBALES ---
 # (No necesitas @onready si son Autoloads)
 # Usamos @onready para esperar a que el árbol esté listo
@@ -18,7 +19,7 @@ extends Control # O el nodo raíz de tu oficina
 
 
 # --- 1. DEFINICIONES GLOBALES (AQUÍ DEBE IR) ---
-enum Herramienta { NINGUNA, SCANNER, PARCHE, FIREWALL }
+enum Herramienta { NINGUNA, SCANNER, PARCHE, FIREWALL , PURGLOG}
 var herramienta_actual = Herramienta.NINGUNA 
 
 # --- INICIALIZACIÓN DE LA VISTA ---
@@ -94,43 +95,132 @@ func _on_button_back_to_menu_pressed() -> void:
 var ultimo_clic_usado: int = MOUSE_BUTTON_LEFT
 
 # 1. Esta función le dice al botón cuánta CPU subir mientras mantiene presionado
-func obtener_costo_cpu_herramienta(button_index: int) -> float:
+func obtener_costo_cpu_herramienta(button_index: int, herramienta) -> float:
 	ultimo_clic_usado = button_index # Guardamos esto para usarlo al final
-
+	if herramienta == "SCANNER":
+		herramienta_actual = Herramienta.SCANNER
+	elif herramienta == "PARCHE":
+		herramienta_actual = Herramienta.PARCHE
+	elif herramienta == "FIREWALL":
+		herramienta_actual = Herramienta.FIREWALL
+	elif herramienta == "PURGLOG":
+		herramienta_actual = Herramienta.PURGLOG
+		
 	match herramienta_actual:
 		Herramienta.SCANNER:
 			return 5.0 # El escáner consume 5% mientras se usa
-
 		Herramienta.PARCHE:
 			if button_index == MOUSE_BUTTON_LEFT:
 				return 10.0 # Parche Lvl 1 consume 10% sostenido
 			elif button_index == MOUSE_BUTTON_RIGHT:
 				return 25.0 # Parche Lvl 3 consume mucho proceso
-
+		Herramienta.PURGLOG:
+			return 4.0
 		Herramienta.FIREWALL:
 			return 15.0
 
 	return 0.0 # Si no hay herramienta, no hace nada
 
 # 2. Esta función se ejecuta SOLO si la barra se llenó
-func ejecutar_accion_final(id_nodo: int):
+func ejecutar_accion_final(id_nodo):
 	var nodo = MapManager.todos_los_nodos_por_id[id_nodo]
 
 	match herramienta_actual:
 		Herramienta.SCANNER:
 			# CORRECCIÓN 1: El escáner NO gasta kits. Solo muestra info.
-			print("Escaneo completado: " + nodo.nombre + " | Infección: " + str(nodo.nivel_infeccion))
+			if(id_nodo==7):
+				get_node("corenew").appear()
+				print("Escaneo completado: " + nodo.nombre + " | Infección: " + str(nodo.nivel_infeccion))
+			else:
+				print("Escaneo completado: " + nodo.nombre + " | Infección: " + str(nodo.nivel_infeccion))
 			# Aquí actualizas el color o pones un label con la info
-
+		Herramienta.PURGLOG:
+				nodo.nivel_infeccion =0
+				get_node("corenew").appear()
+				notification.text = "PurgLog completado.\n" + notification.text
 		Herramienta.PARCHE:
 			# CORRECCIÓN: Aquí sí gastamos kits
+			
 			if ultimo_clic_usado == MOUSE_BUTTON_LEFT:
 				if Player.use_kit():
 					nodo.nivel_infeccion = max(0, nodo.nivel_infeccion - 1)
-					print("Parche completado.")
+					notification.text = "Parche completado.\n" + notification.text
 
-				elif ultimo_clic_usado == MOUSE_BUTTON_RIGHT:
-					if Player.use_super_patch():
-						nodo.nivel_infeccion = 0
-						print("Super Parche completado.")
-						
+			elif ultimo_clic_usado == MOUSE_BUTTON_RIGHT:
+				print('heyy')
+				if Player.use_super_patch():
+					nodo.nivel_infeccion = 0
+					notification.text = "Super Parche completado.\n" + notification.text
+					
+#-----------------------------------------------------------------
+var open = false
+
+func _on_cerrar_map_2_pressed() -> void:
+	if open == false:
+		get_node("MapBase/AnimationPlayer").play("open")
+		open = true
+	else:
+		get_node("MapBase/AnimationPlayer").play("close")
+		open = false
+
+var cam = null
+
+func _on_cam_1_pressed() -> void:
+	if cam != "Cam1":
+		get_node('MapCams').visible = true
+		get_node('MapCams/Cam1').visible = true
+		if cam != null:
+			get_node(cam).visible = false
+	cam = 'MapCams/Cam1'
+	
+func _on_cam_2_pressed() -> void:
+	if cam != "Cam2":
+		get_node('MapCams').visible = true
+		get_node('MapCams/Cam2').visible = true
+		if cam != null:
+			get_node(cam).visible = false
+	cam = 'MapCams/Cam2'
+	
+func _on_cam_3_pressed() -> void:
+	if cam != "Cam3":
+		get_node('MapCams').visible = true
+		get_node('MapCams/Cam3').visible = true
+		if cam != null:
+			get_node(cam).visible = false
+	cam = 'MapCams/Cam3'
+
+func _on_cam_4_pressed() -> void:
+	if cam != "Cam4":
+		get_node('MapCams').visible = true
+		get_node('MapCams/Cam4').visible = true
+		if cam != null:
+			get_node(cam).visible = false
+	cam = 'MapCams/Cam4'
+	
+func _on_cam_5_pressed() -> void:
+	if cam != "Cam5":
+		get_node('MapCams').visible = true
+		get_node('MapCams/Cam5').visible = true
+		if cam != null:
+			get_node(cam).visible = false
+	cam = 'MapCams/Cam5'
+
+
+
+func _on_scanner_pressed() -> void:
+	get_node("MapScan").visible = true
+
+func _on_parches_pressed() -> void:
+	get_node("MapParch").visible = true
+
+func _on_parches3_pressed() -> void:
+	get_node("MapParch3").visible = true
+
+func _on_firewalls_pressed() -> void:
+	get_node("MapFirewalls").visible = true
+	
+
+
+func _on_button_back_cams_pressed() -> void:
+	get_node('MapCams').visible = false
+	get_node(cam).visible = false
