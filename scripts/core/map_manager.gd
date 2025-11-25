@@ -48,6 +48,7 @@ func crear_mapa_backend():
 	
 	# [3] Servidor Mensajería se conecta con [5]
 	n3_serv_msg.conectar_con(n5_repo)
+	n3_serv_msg.conectar_con(n4_cont_dom)
 	
 	# [4] Controlador Dominios se conecta con [7] (Núcleo)
 	n4_cont_dom.conectar_con(n7_nucleo) 
@@ -74,8 +75,10 @@ func spawn_malware_inicial():
 	
 	# A. Spawn en PASARELA (Nodo 1: Ransomware, Worm, Popup)
 	var ransom = MalwareBase.new("Ransomware", nodo_pasarela)
-	var worm = MalwareBase.new("Worm", nodo_pasarela)
-	var popup = MalwareBase.new("PopUp", nodo_pasarela)
+	
+	var worm = Worm.new(nodo_pasarela)
+	
+	var popup = VirusPopup.new(nodo_pasarela)
 	
 	# B. Spawn en SERVIDOR MENSAJERÍA (Nodo 3: Phishing)
 	var phishing = Phishing.new(nodo_serv_msg)
@@ -85,7 +88,7 @@ func spawn_malware_inicial():
 	
 	# 3. GUARDAR TODOS LOS MALWARES ACTIVOS
 	# Aquí deberías usar tu Lista Enlazada, pero para simplicidad, usamos Array:
-	lista_malwares_activos.append(ransom)
+	#lista_malwares_activos.append(ransom)
 	lista_malwares_activos.append(worm)
 	lista_malwares_activos.append(popup)
 	lista_malwares_activos.append(phishing)
@@ -157,28 +160,32 @@ func calcular_distancia_al_nucleo():
 # PIEZA 2: EL MOTOR LÓGICO (EJECUCIÓN)
 # ---------------------------------------------------------
 # 1. Función para ACTIVAR MANUALMENTE 
-func activar_firewall_manual(id_nodo_origen: int):
+func activar_firewall_manual(id_nodo_origen: int, id_nodo_destino: int):
 	# Usamos la configuración de reglas para saber qué caminos cortar
 	if not reglas_firewall.has(id_nodo_origen): return
-
 	var nodo_origen = todos_los_nodos_por_id[id_nodo_origen]
-	var lista_objetivos = reglas_firewall[id_nodo_origen]
-
-	for id_destino in lista_objetivos:
-		var nodo_destino = todos_los_nodos_por_id[id_destino]
-		nodo_origen.bloquear_vecino(nodo_destino) # Corta el cable específico
-
-		print("FIREWALL MANUAL ACTIVO en Nodo " + str(id_nodo_origen))
-
+	var nodo_destino = todos_los_nodos_por_id[id_nodo_destino]
+	#print(id_nodo_origen)
+	#print(nodo_origen.id_numero)
+	#for nodo in nodo_origen.vecinos:
+		#print(nodo.id_numero)
+	nodo_origen.bloquear_vecino(nodo_destino) # Corta el cable específico
+	CPULOGIC.on_firewall()
+	print("FIREWALL MANUAL ACTIVO en Nodo " + str(id_nodo_origen))
+	
 # 2. Función para DESACTIVAR MANUALMENTE
-func desactivar_firewall_manual(id_nodo_origen: int):
+func desactivar_firewall_manual(id_nodo_origen: int, id_nodo_destino: int):
 	if not reglas_firewall.has(id_nodo_origen): return
 
 	var nodo_origen = todos_los_nodos_por_id[id_nodo_origen]
-	var lista_objetivos = reglas_firewall[id_nodo_origen]
+	var nodo_destino = todos_los_nodos_por_id[id_nodo_destino]
+	nodo_origen.reparar(nodo_destino) # Corta el cable específico
+	CPULOGIC.off_firewall()
 
-	for id_destino in lista_objetivos:
-		var nodo_destino = todos_los_nodos_por_id[id_destino]
-		nodo_origen.restaurar_vecino(nodo_destino) # Repara el cable específico
+	print("FIREWALL MANUAL DESACTIVADO en Nodo " + str(id_nodo_origen))
 
-		print("FIREWALL MANUAL DESACTIVADO en Nodo " + str(id_nodo_origen))
+func getMalware(malware):
+	for mal in lista_malwares_activos:
+		if mal.nombre == malware:
+			return mal
+	return null

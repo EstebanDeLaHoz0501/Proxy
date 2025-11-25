@@ -3,14 +3,14 @@ extends Node
 # --- MODELO DE DATOS ---
 var carga_cpu: float = 0.0
 const MAX_CARGA: float = 100.0
-
+var firewall = 0
 # 1. ENFRIAMIENTO PASIVO (Lo que pediste: bajar 1% cada 3 segundos)
 # 1 dividido entre 3 = 0.333 por segundo.
 var tasa_enfriamiento: float = 0.33 
 
 # 2. CARGA ACTIVA (Sube mientras mantienes presionado Scanner/Parche)
 var carga_procesos_activos: float = 0.0
-
+var ConsumoWorm: float = 0.0
 func _process(delta):
 	if get_tree().paused: return
 	
@@ -18,8 +18,7 @@ func _process(delta):
 	# La CPU intenta enfriarse siempre (- tasa_enfriamiento)
 	# Pero los procesos activos la calientan (+ carga_procesos_activos)
 	
-	var cambio_neto = (carga_procesos_activos - tasa_enfriamiento) * delta
-	
+	var cambio_neto = (carga_procesos_activos + ConsumoWorm - tasa_enfriamiento) * delta
 	carga_cpu += cambio_neto
 	
 	# Mantenemos la carga entre 0 y 100
@@ -55,6 +54,11 @@ func detener_proceso_pesado(costo_temporal: float):
 	carga_procesos_activos -= costo_temporal
 	# Seguridad para que nunca quede negativo por errores de redondeo
 	if carga_procesos_activos < 0: carga_procesos_activos = 0.0
+	
+func on_firewall():
+	carga_procesos_activos += 1
+func off_firewall():
+	carga_procesos_activos -= 1
 	
 func set_base_drain(valor: float):
 	# Esta función recibe la orden de Office y actualiza la variable local

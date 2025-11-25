@@ -1,15 +1,18 @@
 extends Button
 
 @export var id_nodo_asociado: int = 1 
+@export var id_nodo_destino: int = 1 
 @export var hold_time_required := 3 # Tiempo que tarda en completarse
 
 var hold_timer := 0.0
 var is_holding := false
 var costo_cpu_actual := 0.0 # Para saber cuánto restar al soltar
-
+var herramienta
+var activefirewall = false
 # Referencias
 @onready var office = get_tree().current_scene 
 @onready var CPULogic = CPULOGIC
+@onready var MM = MAPMANAGER
 @onready var progress_bar = get_parent().get_node("ProgressBar") # Asumiendo que es hijo del botón
 
 func _ready():
@@ -45,18 +48,53 @@ func _gui_input(event):
 
 func iniciar_accion(button_index: int):
 	# 1. Preguntar a la Oficina qué herramienta tengo y cuánto cuesta de CPU
-	var herramienta
+
 	if (self.name == 'CamParch1' or self.name == 'CamParch2' or 
 		self.name == 'CamParch3' or self.name == 'CamParch4' or 
 		self.name == 'CamParch5'):
 		herramienta = "PARCHE"
+		
 	elif (self.name == 'CamScan1' or self.name == 'CamScan2' or 
 		self.name == 'CamScan3' or self.name == 'CamScan4' or 
 		self.name == 'CamScan5' or self.name == 'NucleoScan'):
 		herramienta = "SCANNER"
+		
 	elif (self.name == 'PurgLog'):
 		herramienta = "PURGLOG"
 		
+	if (self.name == "CamFW1_2" or self.name == "CamFW2_4" or 
+		self.name == "CamFW2_6" or self.name == "CamFW1_3" or 
+		self.name == "CamFW3_4" or self.name == "CamFW3_5" or 
+		self.name == "CamFW4_6" or self.name == "CamFW4_7" or 
+		self.name == "CamFW5_7" or self.name == "CamFW6_7"):
+		herramienta = "FIREWALL"
+		
+	if (self.name == "CamFW1_2" or self.name == "CamFW1_3"):
+		id_nodo_asociado = 1
+	elif (self.name == "CamFW2_6" or self.name == "CamFW2_4"):
+		id_nodo_asociado = 2
+	elif (self.name == "CamFW3_4" or self.name == "CamFW3_5"):
+		id_nodo_asociado = 3
+	elif (self.name == "CamFW4_6" or self.name == "CamFW4_7"):
+		id_nodo_asociado = 4
+	elif (self.name == "CamFW5_7"):
+		id_nodo_asociado = 5
+	elif (self.name == "CamFW6_7"):
+		id_nodo_asociado = 6
+	
+	if (self.name == "CamFW1_2"):
+		id_nodo_destino = 2
+	elif (self.name == "CamFW1_3"):
+		id_nodo_destino = 3
+	elif (self.name == "CamFW3_4" or self.name == "CamFW2_4"):
+		id_nodo_destino = 4
+	elif (self.name == "CamFW3_5"):
+		id_nodo_destino = 5
+	elif (self.name == "CamFW4_6" or self.name == "CamFW2_6"):
+		id_nodo_destino = 6
+	elif (self.name == "CamFW4_7" or self.name == "CamFW5_7" or self.name == "CamFW6_7"):
+		id_nodo_destino = 7
+	
 	if (self.name == 'CamParch1' or self.name == 'CamScan1'):
 		id_nodo_asociado = 1	
 	elif (self.name == 'CamParch2' or self.name == 'CamScan2'):
@@ -77,8 +115,10 @@ func iniciar_accion(button_index: int):
 		hold_timer = 0.0
 		progress_bar.show()
 		
-		# 2. AVISAR A LA CPU QUE SUBA (Simula abrir el programa)
-		CPULogic.iniciar_proceso_pesado(costo_cpu_actual)
+		if(herramienta == 'FIREWALL'):
+			pass
+		else:
+			CPULogic.iniciar_proceso_pesado(costo_cpu_actual)
 
 func terminar_accion(exito: bool):
 	is_holding = false
@@ -87,14 +127,20 @@ func terminar_accion(exito: bool):
 	progress_bar.value = 0
 	
 	# 1. AVISAR A LA CPU QUE BAJE (Simula cerrar el programa)
-	CPULogic.detener_proceso_pesado(costo_cpu_actual)
+	if(herramienta == 'FIREWALL'):
+		pass
+	else:
+		CPULogic.detener_proceso_pesado(costo_cpu_actual)
 	
 	# 2. Si se completó la barra, ejecutamos el efecto real
 	if exito:
-		# Enviamos el id y el costo 0 (porque ya lo cobramos temporalmente)
-		# Ojo: necesitamos saber qué botón del mouse inició esto. 
-		# Para simplificar, asumimos que la oficina sabe qué herramienta tiene.
-		# Pero necesitamos pasarle el tipo de clic correcto.
-		
-		# Truco: Recuperamos el último clic o simplemente le decimos a la oficina que ejecute
-		office.ejecutar_accion_final(id_nodo_asociado)
+		if(herramienta == "FIREWALL" and activefirewall==false):
+			MM.activar_firewall_manual(id_nodo_asociado, id_nodo_destino)
+			self.text='Firewall ON'
+			activefirewall = true
+		elif(herramienta == "FIREWALL" and activefirewall==true):
+			MM.desactivar_firewall_manual(id_nodo_asociado, id_nodo_destino)
+			self.text=''
+			activefirewall = false
+		else:
+			office.ejecutar_accion_final(id_nodo_asociado)

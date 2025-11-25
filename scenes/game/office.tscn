@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bmigcqdtkctqs"]
+[gd_scene load_steps=41 format=3 uid="uid://bmigcqdtkctqs"]
 
 [ext_resource type="Script" uid="uid://onjdyq0bcoh1" path="res://scripts/nodes/office.gd" id="1_p2odx"]
 [ext_resource type="Texture2D" uid="uid://cgoccj0ccoucf" path="res://assets/textures/OfficeBackground.png" id="2_3j4db"]
@@ -17,10 +17,16 @@
 [ext_resource type="PackedScene" uid="uid://ccynnoyy46cul" path="res://scenes/game/MapFirewalls.tscn" id="14_85dyd"]
 [ext_resource type="PackedScene" uid="uid://bsblk4yys6llb" path="res://scenes/game/corenew.tscn" id="15_dvrb8"]
 [ext_resource type="Texture2D" uid="uid://bqjy2bidlaw6d" path="res://assets/textures/Cam1Bg.png" id="18_5e2el"]
+[ext_resource type="Texture2D" uid="uid://p30gtp5gkvhq" path="res://assets/textures/wormCamera.png" id="19_5io0l"]
 [ext_resource type="Texture2D" uid="uid://dcjfyyighr87m" path="res://assets/textures/Cam2Bg.png" id="19_svq3o"]
+[ext_resource type="Texture2D" uid="uid://2tf057higlv4" path="res://assets/textures/Untitled86_20251120175601.png" id="20_5e2el"]
 [ext_resource type="Texture2D" uid="uid://o20gl4m03263" path="res://assets/textures/Cam3Bg.png" id="20_5io0l"]
 [ext_resource type="Texture2D" uid="uid://dymqq1eti82h0" path="res://assets/textures/Cam4Bg.png" id="21_euaow"]
-[ext_resource type="Texture2D" uid="uid://cf7x6og11qul4" path="res://assets/textures/Cam5BgPLACEHOLDER.jpg" id="22_3jhh0"]
+[ext_resource type="Texture2D" uid="uid://wtx2wcxkahu0" path="res://assets/textures/Cam5Bg.png" id="21_o2hfa"]
+[ext_resource type="Texture2D" uid="uid://cddp560crt54" path="res://assets/textures/PopupCensurado.png" id="22_o2hfa"]
+[ext_resource type="Texture2D" uid="uid://1t4yydxyqw76" path="res://assets/textures/Popup1.png" id="23_5e2el"]
+[ext_resource type="Texture2D" uid="uid://ds2cmvfa23fjq" path="res://assets/textures/Popup2.png" id="24_svq3o"]
+[ext_resource type="Texture2D" uid="uid://d31fnuqf5lv42" path="res://assets/textures/wormFull.png" id="26_5io0l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_op60s"]
 
@@ -85,6 +91,46 @@ _data = {
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qeu5p"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_750y0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5io0l"]
+bg_color = Color(0.7484873, 0.13900286, 0.11056826, 1)
+
+[sub_resource type="Animation" id="Animation_5e2el"]
+resource_name = "appear"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_svq3o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5io0l"]
+_data = {
+&"RESET": SubResource("Animation_svq3o"),
+&"appear": SubResource("Animation_5e2el")
+}
 
 [node name="Oficina" type="Control"]
 layout_mode = 3
@@ -172,7 +218,7 @@ offset_right = 395.0
 offset_bottom = -138.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 30
 
 [node name="CpuWing" type="TextureRect" parent="TextureRect2"]
 layout_mode = 1
@@ -483,6 +529,46 @@ grow_vertical = 2
 texture = ExtResource("18_5e2el")
 expand_mode = 1
 
+[node name="popup" type="TextureRect" parent="MapCams/Cam1"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("23_5e2el")
+
+[node name="popup2" type="TextureRect" parent="MapCams/Cam1"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("24_svq3o")
+
+[node name="popup3" type="TextureRect" parent="MapCams/Cam1"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("22_o2hfa")
+
+[node name="worm" type="TextureRect" parent="MapCams/Cam1"]
+visible = false
+layout_mode = 0
+offset_right = 598.0
+offset_bottom = 549.0
+texture = ExtResource("19_5io0l")
+
+[node name="phishing" type="TextureRect" parent="MapCams/Cam1"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 797.0
+offset_top = 539.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_5e2el")
+
 [node name="Cam2" type="TextureRect" parent="MapCams"]
 visible = false
 layout_mode = 1
@@ -493,6 +579,46 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("19_svq3o")
 expand_mode = 1
+
+[node name="popup" type="TextureRect" parent="MapCams/Cam2"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("23_5e2el")
+
+[node name="popup2" type="TextureRect" parent="MapCams/Cam2"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("24_svq3o")
+
+[node name="popup3" type="TextureRect" parent="MapCams/Cam2"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("22_o2hfa")
+
+[node name="worm" type="TextureRect" parent="MapCams/Cam2"]
+visible = false
+layout_mode = 0
+offset_right = 598.0
+offset_bottom = 549.0
+texture = ExtResource("19_5io0l")
+
+[node name="phishing" type="TextureRect" parent="MapCams/Cam2"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 797.0
+offset_top = 539.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_5e2el")
 
 [node name="Cam3" type="TextureRect" parent="MapCams"]
 visible = false
@@ -505,6 +631,46 @@ grow_vertical = 2
 texture = ExtResource("20_5io0l")
 expand_mode = 1
 
+[node name="popup" type="TextureRect" parent="MapCams/Cam3"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("23_5e2el")
+
+[node name="popup2" type="TextureRect" parent="MapCams/Cam3"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("24_svq3o")
+
+[node name="popup3" type="TextureRect" parent="MapCams/Cam3"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("22_o2hfa")
+
+[node name="worm" type="TextureRect" parent="MapCams/Cam3"]
+visible = false
+layout_mode = 0
+offset_right = 598.0
+offset_bottom = 549.0
+texture = ExtResource("19_5io0l")
+
+[node name="phishing" type="TextureRect" parent="MapCams/Cam3"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 797.0
+offset_top = 539.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_5e2el")
+
 [node name="Cam4" type="TextureRect" parent="MapCams"]
 visible = false
 layout_mode = 1
@@ -516,6 +682,46 @@ grow_vertical = 2
 texture = ExtResource("21_euaow")
 expand_mode = 1
 
+[node name="popup" type="TextureRect" parent="MapCams/Cam4"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("23_5e2el")
+
+[node name="popup2" type="TextureRect" parent="MapCams/Cam4"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("24_svq3o")
+
+[node name="popup3" type="TextureRect" parent="MapCams/Cam4"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("22_o2hfa")
+
+[node name="worm" type="TextureRect" parent="MapCams/Cam4"]
+visible = false
+layout_mode = 0
+offset_right = 598.0
+offset_bottom = 549.0
+texture = ExtResource("26_5io0l")
+
+[node name="phishing" type="TextureRect" parent="MapCams/Cam4"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 797.0
+offset_top = 539.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_5e2el")
+
 [node name="Cam5" type="TextureRect" parent="MapCams"]
 visible = false
 layout_mode = 1
@@ -524,8 +730,48 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("22_3jhh0")
+texture = ExtResource("21_o2hfa")
 expand_mode = 1
+
+[node name="popup" type="TextureRect" parent="MapCams/Cam5"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("23_5e2el")
+
+[node name="popup2" type="TextureRect" parent="MapCams/Cam5"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("24_svq3o")
+
+[node name="popup3" type="TextureRect" parent="MapCams/Cam5"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("22_o2hfa")
+
+[node name="worm" type="TextureRect" parent="MapCams/Cam5"]
+visible = false
+layout_mode = 0
+offset_right = 598.0
+offset_bottom = 549.0
+texture = ExtResource("19_5io0l")
+
+[node name="phishing" type="TextureRect" parent="MapCams/Cam5"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 797.0
+offset_top = 539.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_5e2el")
 
 [node name="ButtonBackCams" type="Button" parent="MapCams"]
 layout_mode = 0
@@ -629,6 +875,102 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_750y0")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_750y0")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_750y0")
 
+[node name="Popup1" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -146.5
+offset_top = 295.0
+offset_right = -562.5
+offset_bottom = 239.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("22_o2hfa")
+
+[node name="Popup1hide" type="Button" parent="Popup1"]
+layout_mode = 0
+offset_left = 834.5
+offset_top = 193.0
+offset_right = 953.5
+offset_bottom = 258.0
+theme_override_font_sizes/font_size = 40
+text = "NRO3"
+
+[node name="Popup2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 348.0
+offset_top = 563.0
+offset_right = 348.0
+offset_bottom = 563.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.72497886, 0.6890777)
+texture = ExtResource("23_5e2el")
+
+[node name="Popup2hide" type="Button" parent="Popup2"]
+layout_mode = 0
+offset_left = 1191.7589
+offset_top = 114.645935
+offset_right = 1310.7589
+offset_bottom = 209.08405
+theme_override_font_sizes/font_size = 40
+text = "NRO2"
+
+[node name="Popup3" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0098426, 1.0310985)
+texture = ExtResource("24_svq3o")
+
+[node name="Popup3hide" type="Button" parent="Popup3"]
+layout_mode = 0
+offset_left = 914.994
+offset_top = 215.30437
+offset_right = 1033.994
+offset_bottom = 280.30438
+theme_override_font_sizes/font_size = 40
+text = "NRO1"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 963.0
+offset_right = 698.95374
+offset_bottom = 990.0
+scale = Vector2(2.0688064, 1.7729938)
+theme_override_font_sizes/font_size = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_5io0l")
+
+[node name="win" type="ColorRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="win"]
+libraries = {
+&"": SubResource("AnimationLibrary_5io0l")
+}
+autoplay = "RESET"
+
 [connection signal="pressed" from="HUD/buttonBackToMenu" to="." method="_on_button_back_to_menu_pressed"]
 [connection signal="pressed" from="MapBase/TextureRect/TextureRect2/map/Cam1" to="." method="_on_cam_1_pressed"]
 [connection signal="pressed" from="MapBase/TextureRect/TextureRect2/map/Cam2" to="." method="_on_cam_2_pressed"]
@@ -645,3 +987,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_750y0")
 [connection signal="pressed" from="MapCams/minimap/Cam3" to="." method="_on_cam_3_pressed"]
 [connection signal="pressed" from="MapCams/minimap/Cam4" to="." method="_on_cam_4_pressed"]
 [connection signal="pressed" from="MapCams/minimap/Cam5" to="." method="_on_cam_5_pressed"]
+[connection signal="pressed" from="Popup1/Popup1hide" to="." method="_on_popup_1_hide_pressed"]
+[connection signal="pressed" from="Popup2/Popup2hide" to="." method="_on_popup_2_hide_pressed"]
+[connection signal="pressed" from="Popup3/Popup3hide" to="." method="_on_popup_3_hide_pressed"]

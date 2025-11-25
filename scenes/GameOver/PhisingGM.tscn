@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8dx5yxkqnbtp"]
+
+[ext_resource type="Texture2D" uid="uid://cgoccj0ccoucf" path="res://assets/textures/OfficeBackground.png" id="1_iqpiy"]
+[ext_resource type="Texture2D" uid="uid://buos7hurvlvhm" path="res://assets/textures/Core.png" id="2_7g6u4"]
+[ext_resource type="Texture2D" uid="uid://b5d3k3nfwfwgo" path="res://assets/textures/CoreButton.png" id="3_uwfst"]
+[ext_resource type="Texture2D" uid="uid://5046cfnnqjh7" path="res://assets/textures/PhishBody.png" id="4_gxvgx"]
+[ext_resource type="Texture2D" uid="uid://b8i8w0xudbm5" path="res://assets/textures/PhishHead.png" id="5_jsjen"]
+[ext_resource type="Texture2D" uid="uid://bctujtpydppee" path="res://assets/textures/PhishMouth.png" id="6_hwdbn"]
+
+[node name="PhisingGm" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="fondo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_iqpiy")
+expand_mode = 1
+
+[node name="core" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7g6u4")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_uwfst")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_gxvgx")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_jsjen")
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_hwdbn")

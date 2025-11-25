@@ -60,10 +60,23 @@ func load_night_data(night_number: int):
 
 @onready var MapManager = get_node("/root/MAPMANAGER") # Asumiendo que es un Autoload
 
+var Ofice = null
+func registrarEscena(scene):
+	Ofice = scene
+func TimeEventPopUp():
+	if Ofice:
+		Ofice.trigger_PopUp()
+		Ofice.do = true
+		
+
 # En res://scripts/core/malware.gd
 func trigger_game_over(malware):
-	if(malware == 'Spyware'):
+	if(malware == 'Phishing'):
+		get_tree().change_scene_to_file("res://scenes/GameOver/PhisingGM.tscn")
+	elif(malware == 'Spyware'):
 		get_tree().change_scene_to_file("res://scenes/GameOver/SpywareGM.tscn")
+	elif(malware == 'PopUp'):
+		get_tree().change_scene_to_file("res://scenes/GameOver/PopupGM.tscn")
 	get_tree().paused = true 
 
 #func _ready():

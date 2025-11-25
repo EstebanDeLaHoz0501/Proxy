@@ -1,0 +1,93 @@
+[gd_scene load_steps=4 format=3 uid="uid://cl8c83ky3g56r"]
+
+[ext_resource type="Texture2D" uid="uid://1t4yydxyqw76" path="res://assets/textures/Popup1.png" id="1_87ttw"]
+[ext_resource type="Texture2D" uid="uid://ds2cmvfa23fjq" path="res://assets/textures/Popup2.png" id="2_evtcu"]
+[ext_resource type="Texture2D" uid="uid://cddp560crt54" path="res://assets/textures/PopupCensurado.png" id="3_8r4fu"]
+
+[node name="PopupGm" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_vertical_guides_ = [-1470.0]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -109.000015
+offset_top = 438.0
+offset_right = -109.0
+offset_bottom = 438.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.824532, 0.8611945)
+texture = ExtResource("1_87ttw")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -464.0
+offset_top = -284.0
+offset_right = -464.0
+offset_bottom = -284.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_evtcu")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 446.0
+offset_top = -226.0
+offset_right = 446.0
+offset_bottom = -226.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8r4fu")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -451.0
+offset_top = 169.0
+offset_right = -451.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8r4fu")
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 785.0
+offset_top = -59.0
+offset_right = 369.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_87ttw")
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 548.0
+offset_top = 522.0
+offset_right = 548.0
+offset_bottom = 522.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_evtcu")

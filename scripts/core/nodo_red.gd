@@ -36,3 +36,15 @@ func conectar_con(otro_nodo: NodoRed):
 		vecinos.append(otro_nodo)
 		# Si la conexión es doble vía (pueden ir y venir):
 		otro_nodo.vecinos.append(self)
+		
+func reparar(otro_nodo: NodoRed):
+	if not vecinos.has(otro_nodo):
+		vecinos.append(otro_nodo)
+		
+func bloquear_vecino(otro_nodo: NodoRed):
+	for nodo in self.vecinos:
+		print(nodo.id_numero)
+	self.vecinos.erase(otro_nodo)
+	for nodo in self.vecinos:
+		print(nodo.id_numero)
+		# Si la conexión es doble vía (pueden ir y venir):

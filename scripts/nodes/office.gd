@@ -21,12 +21,12 @@ extends Control # O el nodo raíz de tu oficina
 # --- 1. DEFINICIONES GLOBALES (AQUÍ DEBE IR) ---
 enum Herramienta { NINGUNA, SCANNER, PARCHE, FIREWALL , PURGLOG}
 var herramienta_actual = Herramienta.NINGUNA 
-
+var do = false
 # --- INICIALIZACIÓN DE LA VISTA ---
 func _ready():
 	# 1. Pide las REGLAS de la noche actual al GameManager
 	var rules: NightBase = GameManager.current_night_data
-	
+	GAMEMANAGER.registrarEscena(self)
 	if rules == null:
 		print("ERROR: No se cargaron reglas de noche en GameManager. Abortando.")
 		get_tree().quit() # Salir si no hay reglas
@@ -40,20 +40,31 @@ func _ready():
 	# 3. Inicia la noche
 	night_timer.start()
 
-
+var popuptimelimit = 3
+var popuptime = 0
 # --- ACTUALIZACIÓN DE LA VISTA ---
 func _process(delta):
 	# 1. Actualizar la barra de CPU (Vista)
 	if cpu_bar:
 		cpu_bar.value = CPU_Logic.carga_cpu
-
-	# 2. Actualizar el número de CPU (Si tienes un Label para el número)
-	# Esto convierte 83.3333 en 83
-	# Si no tienes un label llamado cpu_label, borra estas dos líneas:
-	# if cpu_label:
-	#    cpu_label.text = str(int(CPULogic.carga_cpu)) + "%"
-
-	# 3. Actualizar el Label de Kits (Vista)
+	if do == true:
+		popuptime += delta
+		$ProgressBar.value = (popuptime / popuptimelimit) * 100
+		if ($ProgressBar.value == 100 and 
+			($Popup1.visible == true or
+			$Popup2.visible == true or
+			$Popup3.visible == true)):
+			GAMEMANAGER.trigger_game_over('PopUp')
+		elif($ProgressBar.value < 100 and 
+			($Popup1.visible == false and
+			$Popup2.visible == false and
+			$Popup3.visible == false)):
+			do = false
+			$ProgressBar.visible = false
+			$Popup1.visible = false
+			$Popup2.visible = false
+			$Popup3.visible = false
+			MAPMANAGER.getMalware('VirusPopup').volver_a_origen()
 	if kits_label:
 		kits_label.text = "KITS: " + str(Player.current_kits)
 
@@ -66,8 +77,11 @@ func _process(delta):
 	# Asegúrate de tener referenciado 'wallclock' con @onready arriba
 		if wallclock:
 			wallclock.text = "   " + "%d:%02d" % [minutos, segundos]
-
-
+	if night_timer.time_left <= 1:
+		$win.visible= true
+		$win/AnimationPlayer.play('appear')
+		
+		MAPMANAGER.lista_malwares_activos.clear()
 # --- CONTROLADOR DE ENTRADA ---
 func _on_nodo_dns_pressed(): # Ejemplo de conexión de señal de un nodo del mapa
 	# 1. Avisa al Controlador de CPU que aplique el costo
@@ -108,16 +122,16 @@ func obtener_costo_cpu_herramienta(button_index: int, herramienta) -> float:
 		
 	match herramienta_actual:
 		Herramienta.SCANNER:
-			return 5.0 # El escáner consume 5% mientras se usa
+			return 5.0/3 # El escáner consume 5% mientras se usa
 		Herramienta.PARCHE:
 			if button_index == MOUSE_BUTTON_LEFT:
-				return 10.0 # Parche Lvl 1 consume 10% sostenido
+				return 10.0/3 # Parche Lvl 1 consume 10% sostenido
 			elif button_index == MOUSE_BUTTON_RIGHT:
-				return 25.0 # Parche Lvl 3 consume mucho proceso
+				return 25.0/3 # Parche Lvl 3 consume mucho proceso
 		Herramienta.PURGLOG:
-			return 4.0
+			return 4.0/4
 		Herramienta.FIREWALL:
-			return 15.0
+			return 15.0 #ni se usa
 
 	return 0.0 # Si no hay herramienta, no hace nada
 
@@ -133,9 +147,13 @@ func ejecutar_accion_final(id_nodo):
 				print("Escaneo completado: " + nodo.nombre + " | Infección: " + str(nodo.nivel_infeccion))
 			else:
 				print("Escaneo completado: " + nodo.nombre + " | Infección: " + str(nodo.nivel_infeccion))
+				notification.text = "Escaneo completado:" + nodo.nombre + " | Infección: " + str(nodo.nivel_infeccion)+"\n" + notification.text
 			# Aquí actualizas el color o pones un label con la info
 		Herramienta.PURGLOG:
 				nodo.nivel_infeccion =0
+				for mal in MAPMANAGER.lista_malwares_activos:
+					if(mal.nodo_actual == nodo):
+						mal.volver_a_origen()
 				get_node("corenew").appear()
 				notification.text = "PurgLog completado.\n" + notification.text
 		Herramienta.PARCHE:
@@ -143,21 +161,49 @@ func ejecutar_accion_final(id_nodo):
 			
 			if ultimo_clic_usado == MOUSE_BUTTON_LEFT:
 				if Player.use_kit():
-					nodo.nivel_infeccion = max(0, nodo.nivel_infeccion - 1)
+					nodo.nivel_infeccion = 0
 					notification.text = "Parche completado.\n" + notification.text
 
 			elif ultimo_clic_usado == MOUSE_BUTTON_RIGHT:
 				print('heyy')
 				if Player.use_super_patch():
 					nodo.nivel_infeccion = 0
+					for mal in MAPMANAGER.lista_malwares_activos:
+						if(mal.nodo_actual == nodo):
+							mal.volver_a_origen()
 					notification.text = "Super Parche completado.\n" + notification.text
 					
+#-----------------------------------------------------------------
+
+func trigger_PopUp():
+		var p1x = randi_range(20, 300)   
+		var p1y = randi_range(100, 300)   
+		$Popup1.position = Vector2(p1x, p1y)
+		$Popup1.visible = true
+		
+		var p2x = randi_range(20, 300)   
+		var p2y = randi_range(100, 300)   
+		$Popup2.position = Vector2(p2x, p2y)
+		$Popup2.visible = true
+		
+		var p3x = randi_range(20, 300)   
+		var p3y = randi_range(100, 300)   
+		$Popup3.position = Vector2(p3x, p3y)
+		$Popup3.visible = true
+		
+		$ProgressBar.visible = true
+		popuptime = 0
+
+
+	
+	
 #-----------------------------------------------------------------
 var open = false
 
 func _on_cerrar_map_2_pressed() -> void:
 	if open == false:
 		get_node("MapBase/AnimationPlayer").play("open")
+		
 		open = true
 	else:
 		get_node("MapBase/AnimationPlayer").play("close")
@@ -166,41 +212,216 @@ func _on_cerrar_map_2_pressed() -> void:
 var cam = null
 
 func _on_cam_1_pressed() -> void:
-	if cam != "Cam1":
+	if cam != 'MapCams/Cam1':
 		get_node('MapCams').visible = true
 		get_node('MapCams/Cam1').visible = true
+		$MapCams/Cam1/popup.visible = false
+		$MapCams/Cam1/popup2.visible = false
+		$MapCams/Cam1/popup3.visible = false
+		if MAPMANAGER.getMalware('Phishing').nodo_actual.id_numero == 1:
+			var px = randi_range(20, 600)   
+			var py = randi_range(100, 400)   
+			$MapCams/Cam1/phishing.position = Vector2(px, py)
+			$MapCams/Cam1/phishing.visible = true
+		else:
+			$MapCams/Cam1/phishing.visible = false
+		if MAPMANAGER.getMalware('Worm').nodo_actual.id_numero == 1:
+			var wx = randi_range(20, 300)   
+			var wy = randi_range(100, 300)   
+			$MapCams/Cam1/worm.position = Vector2(wx, wy)
+			$MapCams/Cam1/worm.visible = true
+		else:
+			$MapCams/Cam1/worm.visible = false
+		if MAPMANAGER.getMalware('VirusPopup').nodo_actual.id_numero == 1:
+			var randompop = randi_range(1, 3)   
+			var vpx = randi_range(20, 300)   
+			var vpy = randi_range(100, 300)
+			print('popup en 1')
+			if(randompop==1): 
+				$MapCams/Cam1/popup.position = Vector2(vpx, vpy)
+				$MapCams/Cam1/popup.visible = true
+			elif(randompop==2):
+				$MapCams/Cam1/popup2.position = Vector2(vpx, vpy)
+				$MapCams/Cam1/popup2.visible = true
+			elif(randompop==3):
+				$MapCams/Cam1/popup3.position = Vector2(vpx, vpy)
+				$MapCams/Cam1/popup3.visible = true
+		else:
+			$MapCams/Cam1/popup.visible = false
+			$MapCams/Cam1/popup2.visible = false
+			$MapCams/Cam1/popup3.visible = false
 		if cam != null:
 			get_node(cam).visible = false
 	cam = 'MapCams/Cam1'
 	
 func _on_cam_2_pressed() -> void:
-	if cam != "Cam2":
+	if cam != 'MapCams/Cam2':
 		get_node('MapCams').visible = true
 		get_node('MapCams/Cam2').visible = true
+		$MapCams/Cam2/popup.visible = false
+		$MapCams/Cam2/popup2.visible = false
+		$MapCams/Cam2/popup3.visible = false
+		if MAPMANAGER.getMalware('Phishing').nodo_actual.id_numero == 2:
+			var px = randi_range(20, 600)   
+			var py = randi_range(100, 400)   
+			$MapCams/Cam2/phishing.position = Vector2(px, py)
+			$MapCams/Cam2/phishing.visible = true
+		else:
+			$MapCams/Cam2/phishing.visible = false
+		if MAPMANAGER.getMalware('Worm').nodo_actual.id_numero == 2:
+			var wx = randi_range(20, 600)   
+			var wy = randi_range(100, 400)   
+			$MapCams/Cam2/worm.position = Vector2(wx, wy)
+			$MapCams/Cam2/worm.visible = true
+		else:
+			$MapCams/Cam2/worm.visible = false
+		if MAPMANAGER.getMalware('VirusPopup').nodo_actual.id_numero == 2:
+			var randompop = randi_range(1, 3)   
+			var vpx = randi_range(20, 600)   
+			var vpy = randi_range(100, 400)
+			print('popup en 1')
+			if(randompop==1): 
+				$MapCams/Cam2/popup.position = Vector2(vpx, vpy)
+				$MapCams/Cam2/popup.visible = true
+			elif(randompop==2):
+				$MapCams/Cam2/popup2.position = Vector2(vpx, vpy)
+				$MapCams/Cam2/popup2.visible = true
+			elif(randompop==3):
+				$MapCams/Cam2/popup3.position = Vector2(vpx, vpy)
+				$MapCams/Cam2/popup3.visible = true
+		else:
+			$MapCams/Cam2/popup.visible = false
+			$MapCams/Cam2/popup2.visible = false
+			$MapCams/Cam2/popup3.visible = false
 		if cam != null:
 			get_node(cam).visible = false
 	cam = 'MapCams/Cam2'
 	
 func _on_cam_3_pressed() -> void:
-	if cam != "Cam3":
+	if cam != 'MapCams/Cam3':
 		get_node('MapCams').visible = true
 		get_node('MapCams/Cam3').visible = true
+		$MapCams/Cam3/popup.visible = false
+		$MapCams/Cam3/popup2.visible = false
+		$MapCams/Cam3/popup3.visible = false
+		if MAPMANAGER.getMalware('Phishing').nodo_actual.id_numero == 3:
+			var px = randi_range(20, 600)   
+			var py = randi_range(100, 400)   
+			$MapCams/Cam3/phishing.position = Vector2(px, py)
+			$MapCams/Cam3/phishing.visible = true
+		else:
+			$MapCams/Cam3/phishing.visible = false
+		if MAPMANAGER.getMalware('Worm').nodo_actual.id_numero == 3:
+			var wx = randi_range(20, 600)   
+			var wy = randi_range(100, 400)   
+			$MapCams/Cam3/worm.position = Vector2(wx, wy)
+			$MapCams/Cam3/worm.visible = true
+		else:
+			$MapCams/Cam3/worm.visible = false
+		if MAPMANAGER.getMalware('VirusPopup').nodo_actual.id_numero == 3:
+			var randompop = randi_range(1, 3)   
+			var vpx = randi_range(20, 600)   
+			var vpy = randi_range(100, 400)
+			print('popup en 1')
+			if(randompop==1): 
+				$MapCams/Cam3/popup.position = Vector2(vpx, vpy)
+				$MapCams/Cam3/popup.visible = true
+			elif(randompop==2):
+				$MapCams/Cam3/popup2.position = Vector2(vpx, vpy)
+				$MapCams/Cam3/popup2.visible = true
+			elif(randompop==3):
+				$MapCams/Cam3/popup3.position = Vector2(vpx, vpy)
+				$MapCams/Cam3/popup3.visible = true
+		else:
+			$MapCams/Cam3/popup.visible = false
+			$MapCams/Cam3/popup2.visible = false
+			$MapCams/Cam3/popup3.visible = false
 		if cam != null:
 			get_node(cam).visible = false
 	cam = 'MapCams/Cam3'
 
 func _on_cam_4_pressed() -> void:
-	if cam != "Cam4":
+	if cam !=  'MapCams/Cam4':
 		get_node('MapCams').visible = true
 		get_node('MapCams/Cam4').visible = true
+		$MapCams/Cam4/popup.visible = false
+		$MapCams/Cam4/popup2.visible = false
+		$MapCams/Cam4/popup3.visible = false
+		if MAPMANAGER.getMalware('Phishing').nodo_actual.id_numero == 4:
+			var px = randi_range(20, 600)   
+			var py = randi_range(100, 400)   
+			$MapCams/Cam4/phishing.position = Vector2(px, py)
+			$MapCams/Cam4/phishing.visible = true
+		else:
+			$MapCams/Cam4/phishing.visible = false
+		if MAPMANAGER.getMalware('Worm').nodo_actual.id_numero == 4:
+			var wx = randi_range(20, 600)   
+			var wy = randi_range(100, 400)   
+			$MapCams/Cam4/worm.position = Vector2(wx, wy)
+			$MapCams/Cam4/worm.visible = true
+		else:
+			$MapCams/Cam4/worm.visible = false
+		if MAPMANAGER.getMalware('VirusPopup').nodo_actual.id_numero == 4:
+			var randompop = randi_range(1, 3)   
+			var vpx = randi_range(20, 600)   
+			var vpy = randi_range(100, 400)
+			print('popup en 1')
+			if(randompop==1): 
+				$MapCams/Cam4/popup.position = Vector2(vpx, vpy)
+				$MapCams/Cam4/popup.visible = true
+			elif(randompop==2):
+				$MapCams/Cam4/popup2.position = Vector2(vpx, vpy)
+				$MapCams/Cam4/popup2.visible = true
+			elif(randompop==3):
+				$MapCams/Cam4/popup3.position = Vector2(vpx, vpy)
+				$MapCams/Cam4/popup3.visible = true
+		else:
+			$MapCams/Cam4/popup.visible = false
+			$MapCams/Cam4/popup2.visible = false
+			$MapCams/Cam4/popup3.visible = false
 		if cam != null:
 			get_node(cam).visible = false
 	cam = 'MapCams/Cam4'
 	
 func _on_cam_5_pressed() -> void:
-	if cam != "Cam5":
+	if cam != 'MapCams/Cam5':
 		get_node('MapCams').visible = true
 		get_node('MapCams/Cam5').visible = true
+		$MapCams/Cam5/popup.visible = false
+		$MapCams/Cam5/popup2.visible = false
+		$MapCams/Cam5/popup3.visible = false
+		if MAPMANAGER.getMalware('Phishing').nodo_actual.id_numero == 5:
+			var px = randi_range(20, 600)   
+			var py = randi_range(100, 400)   
+			$MapCams/Cam5/phishing.position = Vector2(px, py)
+			$MapCams/Cam5/phishing.visible = true
+		else:
+			$MapCams/Cam5/phishing.visible = false
+		if MAPMANAGER.getMalware('Worm').nodo_actual.id_numero == 5:
+			var wx = randi_range(20, 600)   
+			var wy = randi_range(100, 400)   
+			$MapCams/Cam5/worm.position = Vector2(wx, wy)
+			$MapCams/Cam5/worm.visible = true
+		else:
+			$MapCams/Cam5/worm.visible = false
+		if MAPMANAGER.getMalware('VirusPopup').nodo_actual.id_numero == 5:
+			var randompop = randi_range(1, 3)   
+			var vpx = randi_range(20, 600)   
+			var vpy = randi_range(100, 400)
+			print('popup en 1')
+			if(randompop==1): 
+				$MapCams/Cam5/popup.position = Vector2(vpx, vpy)
+				$MapCams/Cam5/popup.visible = true
+			elif(randompop==2):
+				$MapCams/Cam5/popup2.position = Vector2(vpx, vpy)
+				$MapCams/Cam5/popup2.visible = true
+			elif(randompop==3):
+				$MapCams/Cam5/popup3.position = Vector2(vpx, vpy)
+				$MapCams/Cam5/popup3.visible = true
+		else:
+			$MapCams/Cam5/popup.visible = false
+			$MapCams/Cam5/popup2.visible = false
+			$MapCams/Cam5/popup3.visible = false
 		if cam != null:
 			get_node(cam).visible = false
 	cam = 'MapCams/Cam5'
@@ -224,3 +445,14 @@ func _on_firewalls_pressed() -> void:
 func _on_button_back_cams_pressed() -> void:
 	get_node('MapCams').visible = false
 	get_node(cam).visible = false
+	cam = null
+
+
+func _on_popup_1_hide_pressed() -> void:
+	$Popup1.visible = false
+
+func _on_popup_2_hide_pressed() -> void:
+	$Popup2.visible = false
+
+func _on_popup_3_hide_pressed() -> void:
+	$Popup3.visible = false

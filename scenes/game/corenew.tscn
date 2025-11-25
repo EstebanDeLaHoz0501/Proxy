@@ -43,32 +43,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_151xw")
 
-[node name="TextureRect3" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_yy02h")
-expand_mode = 1
-
-[node name="VolverCore" type="Button" parent="TextureRect3"]
-layout_mode = 0
-offset_top = 298.0
-offset_right = 72.0
-offset_bottom = 916.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_vrrm3")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_vrrm3")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_vrrm3")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_vrrm3")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_vrrm3")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_vrrm3")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vrrm3")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_vrrm3")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vrrm3")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_vrrm3")
-
 [node name="sp1" type="TextureRect" parent="."]
 visible = false
 layout_mode = 1
@@ -131,6 +105,32 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_u5l5s")
 expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_yy02h")
+expand_mode = 1
+
+[node name="VolverCore" type="Button" parent="TextureRect3"]
+layout_mode = 0
+offset_top = 298.0
+offset_right = 72.0
+offset_bottom = 916.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vrrm3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vrrm3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_vrrm3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vrrm3")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_vrrm3")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_vrrm3")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vrrm3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vrrm3")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vrrm3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vrrm3")
 
 [node name="NucleoScan" type="Button" parent="."]
 layout_mode = 1
