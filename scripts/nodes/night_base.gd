@@ -4,7 +4,7 @@ class_name NightBase
 # --- Propiedades Base (Reglas) ---
 
 # Duración de la noche en segundos (5 minutos)
-@export var duration: float = 300.0
+@export var duration: float = 300
 
 # Drenaje base de CPU por segundo (1% cada 5s = 0.2 por segundo)
 @export var base_cpu_drain: float = 0.2 

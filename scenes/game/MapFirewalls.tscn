@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cr4wx4fs6pvml" path="res://scripts/nodes/map_firewalls.gd" id="1_cu7kt"]
 [ext_resource type="Texture2D" uid="uid://7jh6116ytpdo" path="res://assets/textures/CameraBg.png" id="2_g2p27"]
 [ext_resource type="Texture2D" uid="uid://cgoccj0ccoucf" path="res://assets/textures/OfficeBackground.png" id="3_rjf5k"]
-[ext_resource type="Script" uid="uid://bm7a704x3y0d2" path="res://scripts/nodes/CamFW.gd" id="4_2qx4w"]
 [ext_resource type="Texture2D" uid="uid://e6gf0tudqohy" path="res://assets/textures/Minimap.png" id="4_qiybl"]
+[ext_resource type="Script" uid="uid://brtfby05qf8e7" path="res://scripts/Action/map_node_button.gd" id="5_g2p27"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lnepf"]
 
@@ -80,7 +80,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yrgh7")
-script = ExtResource("4_2qx4w")
+script = ExtResource("5_g2p27")
 
 [node name="CamFW2_4" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
@@ -98,7 +98,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yrgh7")
-script = ExtResource("4_2qx4w")
+script = ExtResource("5_g2p27")
 
 [node name="CamFW2_6" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
@@ -116,7 +116,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yrgh7")
-script = ExtResource("4_2qx4w")
+script = ExtResource("5_g2p27")
 
 [node name="CamFW1_3" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
@@ -134,7 +134,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yrgh7")
-script = ExtResource("4_2qx4w")
+script = ExtResource("5_g2p27")
 
 [node name="CamFW3_4" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
@@ -152,7 +152,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yrgh7")
-script = ExtResource("4_2qx4w")
+script = ExtResource("5_g2p27")
 
 [node name="CamFW3_5" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
@@ -170,7 +170,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yrgh7")
-script = ExtResource("4_2qx4w")
+script = ExtResource("5_g2p27")
 
 [node name="CamFW4_6" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
@@ -188,7 +188,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yrgh7")
-script = ExtResource("4_2qx4w")
+script = ExtResource("5_g2p27")
 
 [node name="CamFW4_7" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
@@ -206,7 +206,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yrgh7")
-script = ExtResource("4_2qx4w")
+script = ExtResource("5_g2p27")
 
 [node name="CamFW5_7" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
@@ -224,7 +224,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yrgh7")
-script = ExtResource("4_2qx4w")
+script = ExtResource("5_g2p27")
 
 [node name="CamFW6_7" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
@@ -242,7 +242,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yrgh7")
-script = ExtResource("4_2qx4w")
+script = ExtResource("5_g2p27")
 
 [node name="ProgressBar" type="ProgressBar" parent="TextureRect/TextureRect2/map"]
 visible = false

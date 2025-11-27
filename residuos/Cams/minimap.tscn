@@ -1,0 +1,225 @@
+[gd_scene load_steps=10 format=3 uid="uid://0b0t4lcl6cwi"]
+
+[ext_resource type="Script" uid="uid://xqubuium6igy" path="res://residuos/MapBase.gd" id="1_41l8i"]
+[ext_resource type="Texture2D" uid="uid://e6gf0tudqohy" path="res://assets/textures/Minimap.png" id="2_pi16r"]
+[ext_resource type="Texture2D" uid="uid://bqjy2bidlaw6d" path="res://assets/textures/Cam1Bg.png" id="2_vbo53"]
+[ext_resource type="Texture2D" uid="uid://dcjfyyighr87m" path="res://assets/textures/Cam2Bg.png" id="3_vocqc"]
+[ext_resource type="Texture2D" uid="uid://o20gl4m03263" path="res://assets/textures/Cam3Bg.png" id="4_6va1j"]
+[ext_resource type="Texture2D" uid="uid://dymqq1eti82h0" path="res://assets/textures/Cam4Bg.png" id="5_b243e"]
+[ext_resource type="Texture2D" uid="uid://cf7x6og11qul4" path="res://assets/textures/Cam5BgPLACEHOLDER.jpg" id="6_wfyst"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xc3n1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_adppa"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_41l8i")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cam1" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vbo53")
+expand_mode = 1
+
+[node name="ButtonBack1" type="Button" parent="Control/Cam1"]
+layout_mode = 0
+offset_left = 1297.0
+offset_top = 1.0
+offset_right = 1439.0
+offset_bottom = 37.0
+text = "Back to office"
+
+[node name="Cam2" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_vocqc")
+expand_mode = 1
+
+[node name="ButtonBack2" type="Button" parent="Control/Cam2"]
+layout_mode = 0
+offset_left = 1308.0
+offset_top = 1.0
+offset_right = 1440.0
+offset_bottom = 38.0
+text = "Back to office"
+
+[node name="Cam3" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_6va1j")
+expand_mode = 1
+
+[node name="ButtonBack3" type="Button" parent="Control/Cam3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.019000001
+anchor_bottom = 0.040000003
+offset_left = 1317.0
+offset_right = 1412.64
+offset_bottom = -7.2000046
+text = "Back to office"
+
+[node name="Cam4" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_b243e")
+expand_mode = 1
+
+[node name="ButtonBack4" type="Button" parent="Control/Cam4"]
+layout_mode = 0
+offset_left = 1307.0
+offset_right = 1440.0
+offset_bottom = 37.0
+text = "Back to office"
+
+[node name="Cam5" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_wfyst")
+expand_mode = 1
+
+[node name="ButtonBack5" type="Button" parent="Control/Cam5"]
+layout_mode = 0
+offset_left = 1295.0
+offset_right = 1440.0
+offset_bottom = 43.0
+text = "Back to office"
+
+[node name="minimap" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 396.0
+offset_bottom = 403.0
+texture = ExtResource("2_pi16r")
+expand_mode = 1
+
+[node name="Cam1" type="Button" parent="Control/minimap"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 12.0
+offset_right = 204.0
+offset_bottom = 81.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xc3n1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_adppa")
+
+[node name="Cam2" type="Button" parent="Control/minimap"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 92.0
+offset_right = 136.0
+offset_bottom = 161.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xc3n1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_adppa")
+
+[node name="Cam3" type="Button" parent="Control/minimap"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 85.0
+offset_right = 276.0
+offset_bottom = 158.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xc3n1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_adppa")
+
+[node name="Cam4" type="Button" parent="Control/minimap"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 157.0
+offset_right = 201.0
+offset_bottom = 218.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xc3n1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_adppa")
+
+[node name="Cam5" type="Button" parent="Control/minimap"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 175.0
+offset_right = 323.0
+offset_bottom = 245.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xc3n1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_adppa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_adppa")
+
+[connection signal="pressed" from="Control/minimap/Cam1" to="." method="_on_cam_1_pressed"]
+[connection signal="pressed" from="Control/minimap/Cam2" to="." method="_on_cam_2_pressed"]
+[connection signal="pressed" from="Control/minimap/Cam3" to="." method="_on_cam_3_pressed"]
+[connection signal="pressed" from="Control/minimap/Cam4" to="." method="_on_cam_4_pressed"]
+[connection signal="pressed" from="Control/minimap/Cam5" to="." method="_on_cam_5_pressed"]

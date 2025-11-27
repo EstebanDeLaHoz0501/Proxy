@@ -37,8 +37,9 @@ func _ready():
 func _on_regresar_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/ui/menu.tscn")
 	
-func _on_night1_pressed() -> void:
-	# Asumo que tu Autoload global se llama GAMEMANAGER
+	
+func _on_night_1_pressed() -> void:
+		# Asumo que tu Autoload global se llama GAMEMANAGER
 	var game_manager = get_node("/root/GAMEMANAGER") 
 	
 	# --- PASO CRÍTICO 1: Cargar el Modelo ---

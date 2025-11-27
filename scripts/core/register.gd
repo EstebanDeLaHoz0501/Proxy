@@ -39,7 +39,7 @@ func _on_button_ok_pressed() -> void:
 
 func _ready():
 	# 1. Cargamos el slot 1
-	var slot_data = SAVEMANAGER.cargar_slot(1)
+	var slot_data = SAVEMANAGER.cargar_slot(0)
 
 		# 2. Comprobación Robusta: Si existe la clave y el nombre NO es el valor de fábrica "VACIO".
 	if slot_data.has("nombre_jugador") and slot_data["nombre_jugador"] != "VACIO":

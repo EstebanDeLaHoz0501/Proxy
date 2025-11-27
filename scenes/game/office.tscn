@@ -1,25 +1,337 @@
-[gd_scene load_steps=15 format=3 uid="uid://bmigcqdtkctqs"]
+[gd_scene load_steps=64 format=3 uid="uid://bmigcqdtkctqs"]
 
 [ext_resource type="Script" uid="uid://onjdyq0bcoh1" path="res://scripts/nodes/office.gd" id="1_p2odx"]
 [ext_resource type="Texture2D" uid="uid://cgoccj0ccoucf" path="res://assets/textures/OfficeBackground.png" id="2_3j4db"]
-[ext_resource type="PackedScene" uid="uid://dbb27p3h4ixqw" path="res://scenes/game/MapBase.tscn" id="3_26ubm"]
 [ext_resource type="Texture2D" uid="uid://pukyplq6ga0w" path="res://assets/textures/Clock.png" id="3_58l0b"]
 [ext_resource type="Texture2D" uid="uid://bdxlrj1xsxw53" path="res://assets/textures/PatchBackground.png" id="4_clt4o"]
 [ext_resource type="Texture2D" uid="uid://c5m2j1fhn6jwo" path="res://assets/textures/CpuBackground.png" id="5_f1cpc"]
 [ext_resource type="Texture2D" uid="uid://bbk5decbkcjlq" path="res://assets/textures/ResetButton.png" id="6_0io1d"]
 [ext_resource type="Texture2D" uid="uid://27cf2ylcrnj2" path="res://assets/textures/NotifsBlock.png" id="7_85dyd"]
 [ext_resource type="Texture2D" uid="uid://b5d3k3nfwfwgo" path="res://assets/textures/CoreButton.png" id="8_dvrb8"]
-[ext_resource type="PackedScene" uid="uid://dfcdgtpjlknki" path="res://scenes/game/core.tscn" id="9_58l0b"]
+[ext_resource type="PackedScene" uid="uid://dfcdgtpjlknki" path="res://scenes/game/corebutton.tscn" id="9_58l0b"]
+[ext_resource type="Texture2D" uid="uid://7jh6116ytpdo" path="res://assets/textures/CameraBg.png" id="10_j4pfl"]
+[ext_resource type="Texture2D" uid="uid://e6gf0tudqohy" path="res://assets/textures/Minimap.png" id="11_0ybno"]
 [ext_resource type="PackedScene" uid="uid://bljy3weyh265a" path="res://scenes/game/MapScan.tscn" id="11_clt4o"]
 [ext_resource type="PackedScene" uid="uid://bxlfv53p8ljir" path="res://scenes/game/MapParch.tscn" id="12_0io1d"]
-[ext_resource type="PackedScene" uid="uid://bpwfynnru0vry" path="res://scenes/game/MapParch_3.tscn" id="13_85dyd"]
+[ext_resource type="AudioStream" uid="uid://lyxuq2gfchyk" path="res://assets/textures/AUDIO/CAMERA_VIDEO_LOA_60105303.wav" id="12_xfdqp"]
+[ext_resource type="PackedScene" uid="uid://bpwfynnru0vry" path="res://residuos/MapParch_3.tscn" id="13_85dyd"]
 [ext_resource type="PackedScene" uid="uid://ccynnoyy46cul" path="res://scenes/game/MapFirewalls.tscn" id="14_85dyd"]
+[ext_resource type="PackedScene" uid="uid://bsblk4yys6llb" path="res://scenes/game/corenew.tscn" id="15_dvrb8"]
+[ext_resource type="Texture2D" uid="uid://bqjy2bidlaw6d" path="res://assets/textures/Cam1Bg.png" id="18_5e2el"]
+[ext_resource type="Texture2D" uid="uid://p30gtp5gkvhq" path="res://assets/textures/wormCamera.png" id="19_5io0l"]
+[ext_resource type="Texture2D" uid="uid://dcjfyyighr87m" path="res://assets/textures/Cam2Bg.png" id="19_svq3o"]
+[ext_resource type="Texture2D" uid="uid://2tf057higlv4" path="res://assets/textures/Untitled86_20251120175601.png" id="20_5e2el"]
+[ext_resource type="Texture2D" uid="uid://o20gl4m03263" path="res://assets/textures/Cam3Bg.png" id="20_5io0l"]
+[ext_resource type="Texture2D" uid="uid://dymqq1eti82h0" path="res://assets/textures/Cam4Bg.png" id="21_euaow"]
+[ext_resource type="Texture2D" uid="uid://wtx2wcxkahu0" path="res://assets/textures/Cam5Bg.png" id="21_o2hfa"]
+[ext_resource type="Texture2D" uid="uid://cddp560crt54" path="res://assets/textures/PopupCensurado.png" id="22_o2hfa"]
+[ext_resource type="Texture2D" uid="uid://1t4yydxyqw76" path="res://assets/textures/Popup1.png" id="23_5e2el"]
+[ext_resource type="Texture2D" uid="uid://cmvipyc6016iq" path="res://assets/textures/0-STATIC/1.png" id="23_7rc55"]
+[ext_resource type="Texture2D" uid="uid://ds2cmvfa23fjq" path="res://assets/textures/Popup2.png" id="24_svq3o"]
+[ext_resource type="Texture2D" uid="uid://dgd342ohfdrn5" path="res://assets/textures/0-STATIC/2.png" id="24_yaqk7"]
+[ext_resource type="Texture2D" uid="uid://bk1481bsp1fuy" path="res://assets/textures/0-STATIC/3.png" id="25_c5cwm"]
+[ext_resource type="Texture2D" uid="uid://d31fnuqf5lv42" path="res://assets/textures/wormFull.png" id="26_5io0l"]
+[ext_resource type="Texture2D" uid="uid://bn2j2kygv5ai0" path="res://assets/textures/0-STATIC/4.png" id="26_56i2n"]
+[ext_resource type="Texture2D" uid="uid://c73jgeiwpc1xt" path="res://assets/textures/0-STATIC/5.png" id="27_35lcx"]
+[ext_resource type="Texture2D" uid="uid://dmjdjq7wc6tkf" path="res://assets/textures/0-STATIC/6.png" id="28_wyg83"]
+[ext_resource type="Texture2D" uid="uid://g2c0ltyhc05g" path="res://assets/textures/0-STATIC/7.png" id="29_opbhx"]
+[ext_resource type="Texture2D" uid="uid://bsw6q1284vup1" path="res://assets/textures/0-STATIC/8.png" id="30_hjlrj"]
+[ext_resource type="Script" uid="uid://cabimrgaihefu" path="res://scripts/ui/static1.gd" id="31_pi0b5"]
+[ext_resource type="Texture2D" uid="uid://th6d0ofsq5vf" path="res://assets/textures/0-STATICFLASH/1flash.png" id="32_hjlrj"]
+[ext_resource type="Texture2D" uid="uid://oqugnpyb3b8u" path="res://assets/textures/0-STATICFLASH/2flash.png" id="33_pi0b5"]
+[ext_resource type="Texture2D" uid="uid://q62c43rjibmm" path="res://assets/textures/0-STATICFLASH/3flash.png" id="34_e36h3"]
+[ext_resource type="Texture2D" uid="uid://bk8g58m17uw8w" path="res://assets/textures/0-STATICFLASH/4flash.png" id="35_xlwui"]
+[ext_resource type="Texture2D" uid="uid://q3ojf4pr7kn3" path="res://assets/textures/0-STATICFLASH/5flash.png" id="36_xfdqp"]
+[ext_resource type="Texture2D" uid="uid://bn4yj6hqeffvt" path="res://assets/textures/0-STATICFLASH/6flash.png" id="37_r35ul"]
+[ext_resource type="Texture2D" uid="uid://b4b0xhqkvw5og" path="res://assets/textures/0-STATICFLASH/7flash.png" id="38_cdeyu"]
+[ext_resource type="Script" uid="uid://oksrjdsovlxv" path="res://scripts/ui/staticflash.gd" id="39_pi0b5"]
+[ext_resource type="AudioStream" uid="uid://cyauueacg0dqa" path="res://assets/textures/AUDIO/camarasound.wav" id="40_e36h3"]
+[ext_resource type="AudioStream" uid="uid://bn1h0xeiepklb" path="res://assets/textures/AUDIO/chimes 2.wav" id="46_xlwui"]
 
-[node name="Control" type="Control"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_op60s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i2rva"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3828x"]
+
+[sub_resource type="Animation" id="Animation_0ybno"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-10, -764)]
+}
+
+[sub_resource type="Animation" id="Animation_o2hfa"]
+resource_name = "close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.36602154, 0.39229205),
+"update": 0,
+"values": [Vector2(-8, 0), Vector2(-7, -764)]
+}
+
+[sub_resource type="Animation" id="Animation_j4pfl"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.39229205, 0.36602154),
+"update": 0,
+"values": [Vector2(-7, -764), Vector2(-8, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5e2el"]
+_data = {
+&"RESET": SubResource("Animation_0ybno"),
+&"close": SubResource("Animation_o2hfa"),
+&"open": SubResource("Animation_j4pfl")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e36h3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_7rc55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_yaqk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_c5cwm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_56i2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_35lcx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_wyg83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_opbhx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_hjlrj")
+}],
+"loop": true,
+"name": &"movimiento",
+"speed": 25.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hjlrj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_hjlrj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_pi0b5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_e36h3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_xlwui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_xfdqp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_r35ul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_cdeyu")
+}],
+"loop": true,
+"name": &"flash",
+"speed": 30.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qeu5p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_750y0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5io0l"]
+bg_color = Color(0.7484873, 0.13900286, 0.11056826, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_e36h3"]
+
+[sub_resource type="Animation" id="Animation_svq3o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label5:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label5:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label6:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label6:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Label6:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5e2el"]
+resource_name = "appear"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label5:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.5333333, 3, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.011000001)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label6:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.5, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("Label5:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label6:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.03333334, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5io0l"]
+_data = {
+&"RESET": SubResource("Animation_svq3o"),
+&"appear": SubResource("Animation_5e2el")
+}
+
+[node name="Oficina" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 1.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p2odx")
@@ -84,6 +396,21 @@ grow_vertical = 2
 texture = ExtResource("7_85dyd")
 expand_mode = 1
 
+[node name="Label" type="Label" parent="TextureRect2/Notif"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -332.0
+offset_top = -389.0
+offset_right = 395.0
+offset_bottom = -138.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+
 [node name="CpuWing" type="TextureRect" parent="TextureRect2"]
 layout_mode = 1
 anchors_preset = 15
@@ -94,12 +421,15 @@ grow_vertical = 2
 texture = ExtResource("8_dvrb8")
 expand_mode = 1
 
-[node name="Control" parent="TextureRect2" instance=ExtResource("9_58l0b")]
+[node name="corebutton" parent="TextureRect2" instance=ExtResource("9_58l0b")]
 layout_mode = 1
 offset_left = -1445.0
 offset_top = -14.0
-offset_right = -1445.0
+offset_right = -1440.0
 offset_bottom = 24.0
+
+[node name="openmapsound" type="AudioStreamPlayer" parent="TextureRect2/corebutton"]
+stream = ExtResource("12_xfdqp")
 
 [node name="HUD" type="Control" parent="."]
 anchors_preset = 0
@@ -128,7 +458,7 @@ text = "PARCHES
 layout_mode = 0
 offset_left = -44.797184
 offset_top = 511.94287
-offset_right = 730.091
+offset_right = 730.0909
 offset_bottom = 628.8721
 rotation = -1.5664457
 
@@ -155,8 +485,206 @@ offset_right = -488.0
 offset_bottom = 85.0
 theme_override_font_sizes/font_size = 140
 
-[node name="MapBase" parent="." instance=ExtResource("3_26ubm")]
+[node name="MapBase" type="Control" parent="."]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -764.0
+offset_right = -10.0
+offset_bottom = -764.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MapBase"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -1.0
+offset_right = 11.0
+offset_bottom = -0.9958496
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_j4pfl")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="MapBase/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 415.0
+offset_top = 167.0
+offset_right = -215.0
+offset_bottom = -361.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3j4db")
+expand_mode = 1
+
+[node name="map" type="TextureRect" parent="MapBase/TextureRect/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.5
+offset_top = -248.0
+offset_right = 372.5
+offset_bottom = 264.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_0ybno")
+
+[node name="Cam1" type="Button" parent="MapBase/TextureRect/TextureRect2/map"]
+layout_mode = 0
+offset_left = 209.5
+offset_top = 24.0
+offset_right = 297.0
+offset_bottom = 117.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_op60s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i2rva")
+
+[node name="Cam2" type="Button" parent="MapBase/TextureRect/TextureRect2/map"]
+layout_mode = 0
+offset_left = 109.5
+offset_top = 145.0
+offset_right = 193.0
+offset_bottom = 229.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_op60s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i2rva")
+
+[node name="Cam3" type="Button" parent="MapBase/TextureRect/TextureRect2/map"]
+layout_mode = 0
+offset_left = 312.5
+offset_top = 141.0
+offset_right = 405.0
+offset_bottom = 230.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_op60s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i2rva")
+
+[node name="Cam4" type="Button" parent="MapBase/TextureRect/TextureRect2/map"]
+layout_mode = 0
+offset_left = 208.5
+offset_top = 231.0
+offset_right = 310.0
+offset_bottom = 327.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_op60s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i2rva")
+
+[node name="Cam5" type="Button" parent="MapBase/TextureRect/TextureRect2/map"]
+layout_mode = 0
+offset_left = 386.5
+offset_top = 269.0
+offset_right = 490.0
+offset_bottom = 365.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_op60s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i2rva")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i2rva")
+
+[node name="CerrarMap2" type="Button" parent="MapBase/TextureRect/TextureRect2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -571.0
+offset_top = 319.99792
+offset_right = 40.0
+offset_bottom = 390.99792
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3828x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3828x")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_3828x")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3828x")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_3828x")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_3828x")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_3828x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3828x")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_3828x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3828x")
+
+[node name="openmapsound" type="AudioStreamPlayer" parent="MapBase/TextureRect/TextureRect2/CerrarMap2"]
+stream = ExtResource("12_xfdqp")
+
+[node name="Scanner" type="Button" parent="MapBase/TextureRect/TextureRect2"]
+layout_mode = 0
+offset_left = 12.5
+offset_top = 71.002075
+offset_right = 242.5
+offset_bottom = 165.00208
+theme_override_font_sizes/font_size = 30
+text = "Scanner"
+
+[node name="Firewalls" type="Button" parent="MapBase/TextureRect/TextureRect2"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 291.0
+offset_right = 243.0
+offset_bottom = 385.0
+theme_override_font_sizes/font_size = 30
+text = "Firewalls"
+
+[node name="Parches" type="Button" parent="MapBase/TextureRect/TextureRect2"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 187.0
+offset_right = 243.0
+offset_bottom = 281.0
+theme_override_font_sizes/font_size = 20
+text = "Parche / Parche lvl3 "
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MapBase"]
+libraries = {
+&"": SubResource("AnimationLibrary_5e2el")
+}
+autoplay = "RESET"
 
 [node name="MapFirewalls" parent="." instance=ExtResource("14_85dyd")]
 visible = false
@@ -174,4 +702,594 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+[node name="corenew" parent="." instance=ExtResource("15_dvrb8")]
+visible = false
+layout_mode = 1
+
+[node name="MapCams" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cam1" type="TextureRect" parent="MapCams"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_5e2el")
+expand_mode = 1
+
+[node name="popup" type="TextureRect" parent="MapCams/Cam1"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("23_5e2el")
+
+[node name="popup2" type="TextureRect" parent="MapCams/Cam1"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("24_svq3o")
+
+[node name="popup3" type="TextureRect" parent="MapCams/Cam1"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("22_o2hfa")
+
+[node name="worm" type="TextureRect" parent="MapCams/Cam1"]
+visible = false
+layout_mode = 0
+offset_right = 598.0
+offset_bottom = 549.0
+texture = ExtResource("19_5io0l")
+
+[node name="phishing" type="TextureRect" parent="MapCams/Cam1"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 797.0
+offset_top = 539.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_5e2el")
+
+[node name="EstaticaCam" type="AnimatedSprite2D" parent="MapCams/Cam1"]
+modulate = Color(1, 1, 1, 0.43529412)
+position = Vector2(719.875, 540.99994)
+scale = Vector2(1.1251953, 1.4972222)
+sprite_frames = SubResource("SpriteFrames_e36h3")
+animation = &"movimiento"
+script = ExtResource("31_pi0b5")
+
+[node name="EstaticaFlash" type="AnimatedSprite2D" parent="MapCams/Cam1"]
+modulate = Color(1, 1, 1, 0.42000002)
+top_level = true
+position = Vector2(719.5, 541.5)
+scale = Vector2(1.1257813, 1.4958333)
+sprite_frames = SubResource("SpriteFrames_hjlrj")
+animation = &"flash"
+script = ExtResource("39_pi0b5")
+
+[node name="camerasound" type="AudioStreamPlayer" parent="MapCams/Cam1"]
+stream = ExtResource("40_e36h3")
+
+[node name="Cam2" type="TextureRect" parent="MapCams"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_svq3o")
+expand_mode = 1
+
+[node name="popup" type="TextureRect" parent="MapCams/Cam2"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("23_5e2el")
+
+[node name="popup2" type="TextureRect" parent="MapCams/Cam2"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("24_svq3o")
+
+[node name="popup3" type="TextureRect" parent="MapCams/Cam2"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("22_o2hfa")
+
+[node name="worm" type="TextureRect" parent="MapCams/Cam2"]
+visible = false
+layout_mode = 0
+offset_right = 598.0
+offset_bottom = 549.0
+texture = ExtResource("19_5io0l")
+
+[node name="phishing" type="TextureRect" parent="MapCams/Cam2"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 797.0
+offset_top = 539.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_5e2el")
+
+[node name="EstaticaCam" type="AnimatedSprite2D" parent="MapCams/Cam2"]
+modulate = Color(1, 1, 1, 0.43529412)
+position = Vector2(719.875, 540.99994)
+scale = Vector2(1.1251953, 1.4972222)
+sprite_frames = SubResource("SpriteFrames_e36h3")
+animation = &"movimiento"
+script = ExtResource("31_pi0b5")
+
+[node name="camerasound" type="AudioStreamPlayer" parent="MapCams/Cam2"]
+stream = ExtResource("40_e36h3")
+
+[node name="Cam3" type="TextureRect" parent="MapCams"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_5io0l")
+expand_mode = 1
+
+[node name="popup" type="TextureRect" parent="MapCams/Cam3"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("23_5e2el")
+
+[node name="popup2" type="TextureRect" parent="MapCams/Cam3"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("24_svq3o")
+
+[node name="popup3" type="TextureRect" parent="MapCams/Cam3"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("22_o2hfa")
+
+[node name="worm" type="TextureRect" parent="MapCams/Cam3"]
+visible = false
+layout_mode = 0
+offset_right = 598.0
+offset_bottom = 549.0
+texture = ExtResource("19_5io0l")
+
+[node name="phishing" type="TextureRect" parent="MapCams/Cam3"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 797.0
+offset_top = 539.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_5e2el")
+
+[node name="EstaticaCam" type="AnimatedSprite2D" parent="MapCams/Cam3"]
+modulate = Color(1, 1, 1, 0.43529412)
+position = Vector2(719.875, 540.99994)
+scale = Vector2(1.1251953, 1.4972222)
+sprite_frames = SubResource("SpriteFrames_e36h3")
+animation = &"movimiento"
+script = ExtResource("31_pi0b5")
+
+[node name="camerasound" type="AudioStreamPlayer" parent="MapCams/Cam3"]
+stream = ExtResource("40_e36h3")
+
+[node name="Cam4" type="TextureRect" parent="MapCams"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_euaow")
+expand_mode = 1
+
+[node name="popup" type="TextureRect" parent="MapCams/Cam4"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("23_5e2el")
+
+[node name="popup2" type="TextureRect" parent="MapCams/Cam4"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("24_svq3o")
+
+[node name="popup3" type="TextureRect" parent="MapCams/Cam4"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("22_o2hfa")
+
+[node name="worm" type="TextureRect" parent="MapCams/Cam4"]
+visible = false
+layout_mode = 0
+offset_right = 598.0
+offset_bottom = 549.0
+texture = ExtResource("26_5io0l")
+
+[node name="phishing" type="TextureRect" parent="MapCams/Cam4"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 797.0
+offset_top = 539.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_5e2el")
+
+[node name="EstaticaCam" type="AnimatedSprite2D" parent="MapCams/Cam4"]
+modulate = Color(1, 1, 1, 0.43529412)
+position = Vector2(719.875, 540.99994)
+scale = Vector2(1.1251953, 1.4972222)
+sprite_frames = SubResource("SpriteFrames_e36h3")
+animation = &"movimiento"
+script = ExtResource("31_pi0b5")
+
+[node name="camerasound" type="AudioStreamPlayer" parent="MapCams/Cam4"]
+stream = ExtResource("40_e36h3")
+
+[node name="Cam5" type="TextureRect" parent="MapCams"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_o2hfa")
+expand_mode = 1
+
+[node name="popup" type="TextureRect" parent="MapCams/Cam5"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("23_5e2el")
+
+[node name="popup2" type="TextureRect" parent="MapCams/Cam5"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("24_svq3o")
+
+[node name="popup3" type="TextureRect" parent="MapCams/Cam5"]
+visible = false
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("22_o2hfa")
+
+[node name="worm" type="TextureRect" parent="MapCams/Cam5"]
+visible = false
+layout_mode = 0
+offset_right = 598.0
+offset_bottom = 549.0
+texture = ExtResource("19_5io0l")
+
+[node name="phishing" type="TextureRect" parent="MapCams/Cam5"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 797.0
+offset_top = 539.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_5e2el")
+
+[node name="EstaticaCam" type="AnimatedSprite2D" parent="MapCams/Cam5"]
+modulate = Color(1, 1, 1, 0.43529412)
+position = Vector2(719.875, 540.99994)
+scale = Vector2(1.1251953, 1.4972222)
+sprite_frames = SubResource("SpriteFrames_e36h3")
+animation = &"movimiento"
+script = ExtResource("31_pi0b5")
+
+[node name="EstaticaFlash" type="AnimatedSprite2D" parent="MapCams/Cam5"]
+modulate = Color(1, 1, 1, 0.42000002)
+top_level = true
+position = Vector2(719.5, 541.5)
+scale = Vector2(1.1257813, 1.4958333)
+sprite_frames = SubResource("SpriteFrames_hjlrj")
+animation = &"flash"
+script = ExtResource("39_pi0b5")
+
+[node name="camerasound" type="AudioStreamPlayer" parent="MapCams/Cam5"]
+stream = ExtResource("40_e36h3")
+
+[node name="ButtonBackCams" type="Button" parent="MapCams"]
+layout_mode = 0
+offset_left = 1297.0
+offset_top = 1.0
+offset_right = 1439.0
+offset_bottom = 37.0
+text = "Back to office"
+
+[node name="minimap" type="TextureRect" parent="MapCams"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 396.0
+offset_bottom = 403.0
+texture = ExtResource("11_0ybno")
+expand_mode = 1
+
+[node name="Cam1" type="Button" parent="MapCams/minimap"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 12.0
+offset_right = 204.0
+offset_bottom = 81.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qeu5p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_750y0")
+
+[node name="Cam2" type="Button" parent="MapCams/minimap"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 92.0
+offset_right = 136.0
+offset_bottom = 161.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qeu5p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_750y0")
+
+[node name="Cam3" type="Button" parent="MapCams/minimap"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 85.0
+offset_right = 276.0
+offset_bottom = 158.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qeu5p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_750y0")
+
+[node name="Cam4" type="Button" parent="MapCams/minimap"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 157.0
+offset_right = 201.0
+offset_bottom = 218.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qeu5p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_750y0")
+
+[node name="Cam5" type="Button" parent="MapCams/minimap"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 175.0
+offset_right = 323.0
+offset_bottom = 245.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qeu5p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_750y0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_750y0")
+
+[node name="Popup1" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -146.5
+offset_top = 295.0
+offset_right = -562.5
+offset_bottom = 239.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("22_o2hfa")
+
+[node name="Popup1hide" type="Button" parent="Popup1"]
+layout_mode = 0
+offset_left = 834.5
+offset_top = 193.0
+offset_right = 953.5
+offset_bottom = 258.0
+theme_override_font_sizes/font_size = 40
+text = "NRO3"
+
+[node name="Popup2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 348.0
+offset_top = 563.0
+offset_right = 348.0
+offset_bottom = 563.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.72497886, 0.6890777)
+texture = ExtResource("23_5e2el")
+
+[node name="Popup2hide" type="Button" parent="Popup2"]
+layout_mode = 0
+offset_left = 1191.7589
+offset_top = 114.645935
+offset_right = 1310.7589
+offset_bottom = 209.08405
+theme_override_font_sizes/font_size = 40
+text = "NRO2"
+
+[node name="Popup3" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0098426, 1.0310985)
+texture = ExtResource("24_svq3o")
+
+[node name="Popup3hide" type="Button" parent="Popup3"]
+layout_mode = 0
+offset_left = 914.994
+offset_top = 215.30437
+offset_right = 1033.994
+offset_bottom = 280.30438
+theme_override_font_sizes/font_size = 40
+text = "NRO1"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 963.0
+offset_right = 698.95374
+offset_bottom = 990.0
+scale = Vector2(2.0688064, 1.7729938)
+theme_override_font_sizes/font_size = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_5io0l")
+
+[node name="win" type="ColorRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+top_level = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label5" type="Label" parent="win"]
+modulate = Color(1, 1, 1, 0)
+top_level = true
+layout_mode = 0
+offset_left = 522.0
+offset_top = 196.0
+offset_right = 926.0
+offset_bottom = 426.0
+theme_override_fonts/font = SubResource("SystemFont_e36h3")
+theme_override_font_sizes/font_size = 50
+text = "5:00 AM"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 128
+
+[node name="Label6" type="Label" parent="win"]
+top_level = true
+layout_mode = 0
+offset_left = 539.0
+offset_top = 250.0
+offset_right = 904.0
+offset_bottom = 480.0
+theme_override_font_sizes/font_size = 50
+text = "6:00 AM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="animacionwin" type="AnimationPlayer" parent="win"]
+libraries = {
+&"": SubResource("AnimationLibrary_5io0l")
+}
+
+[node name="winsound" type="AudioStreamPlayer" parent="win"]
+stream = ExtResource("46_xlwui")
+
 [connection signal="pressed" from="HUD/buttonBackToMenu" to="." method="_on_button_back_to_menu_pressed"]
+[connection signal="pressed" from="MapBase/TextureRect/TextureRect2/map/Cam1" to="." method="_on_cam_1_pressed"]
+[connection signal="pressed" from="MapBase/TextureRect/TextureRect2/map/Cam2" to="." method="_on_cam_2_pressed"]
+[connection signal="pressed" from="MapBase/TextureRect/TextureRect2/map/Cam3" to="." method="_on_cam_3_pressed"]
+[connection signal="pressed" from="MapBase/TextureRect/TextureRect2/map/Cam4" to="." method="_on_cam_4_pressed"]
+[connection signal="pressed" from="MapBase/TextureRect/TextureRect2/map/Cam5" to="." method="_on_cam_5_pressed"]
+[connection signal="pressed" from="MapBase/TextureRect/TextureRect2/CerrarMap2" to="." method="_on_cerrar_map_2_pressed"]
+[connection signal="pressed" from="MapBase/TextureRect/TextureRect2/Scanner" to="." method="_on_scanner_pressed"]
+[connection signal="pressed" from="MapBase/TextureRect/TextureRect2/Firewalls" to="." method="_on_firewalls_pressed"]
+[connection signal="pressed" from="MapBase/TextureRect/TextureRect2/Parches" to="." method="_on_parches_pressed"]
+[connection signal="pressed" from="MapCams/ButtonBackCams" to="." method="_on_button_back_cams_pressed"]
+[connection signal="pressed" from="MapCams/minimap/Cam1" to="." method="_on_cam_1_pressed"]
+[connection signal="pressed" from="MapCams/minimap/Cam2" to="." method="_on_cam_2_pressed"]
+[connection signal="pressed" from="MapCams/minimap/Cam3" to="." method="_on_cam_3_pressed"]
+[connection signal="pressed" from="MapCams/minimap/Cam4" to="." method="_on_cam_4_pressed"]
+[connection signal="pressed" from="MapCams/minimap/Cam5" to="." method="_on_cam_5_pressed"]
+[connection signal="pressed" from="Popup1/Popup1hide" to="." method="_on_popup_1_hide_pressed"]
+[connection signal="pressed" from="Popup2/Popup2hide" to="." method="_on_popup_2_hide_pressed"]
+[connection signal="pressed" from="Popup3/Popup3hide" to="." method="_on_popup_3_hide_pressed"]

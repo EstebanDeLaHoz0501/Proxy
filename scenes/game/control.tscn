@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxr6vrp8ft1p4"]
+
+[ext_resource type="Script" uid="uid://cbkq5gstxajh6" path="res://scripts/nodes/core.gd" id="1_jq4u8"]
+[ext_resource type="Texture2D" uid="uid://b5d3k3nfwfwgo" path="res://assets/textures/CoreButton.png" id="2_7yyp4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_logxx"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jq4u8")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1447.0
+offset_top = 4.0
+offset_right = 1447.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7yyp4")
+expand_mode = 1
+
+[node name="VolverCore" type="Button" parent="TextureRect3"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 300.0
+offset_right = 66.0
+offset_bottom = 918.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_logxx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_logxx")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_logxx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_logxx")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_logxx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_logxx")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_logxx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_logxx")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_logxx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_logxx")
+
+[connection signal="pressed" from="TextureRect3/VolverCore" to="." method="_on_button_pressed"]

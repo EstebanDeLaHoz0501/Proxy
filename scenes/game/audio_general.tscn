@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuc8pcdey0kvh"]
+
+[ext_resource type="AudioStream" uid="uid://blblmbeq5p0dx" path="res://assets/textures/AUDIO/ambience2.wav" id="1_br41b"]
+[ext_resource type="Script" uid="uid://byvfotvhp500k" path="res://scripts/ui/audioglobal.gd" id="2_br41b"]
+
+[node name="AudioGeneral" type="AudioStreamPlayer"]
+stream = ExtResource("1_br41b")
+volume_db = 10.0
+autoplay = true
+script = ExtResource("2_br41b")

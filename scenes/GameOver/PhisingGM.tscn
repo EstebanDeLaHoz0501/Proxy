@@ -1,0 +1,128 @@
+[gd_scene load_steps=19 format=3 uid="uid://b8dx5yxkqnbtp"]
+
+[ext_resource type="Script" uid="uid://dmiv0kndi1qcy" path="res://scripts/malware/gritojumpscare.gd" id="1_34d2l"]
+[ext_resource type="Texture2D" uid="uid://cgoccj0ccoucf" path="res://assets/textures/OfficeBackground.png" id="1_iqpiy"]
+[ext_resource type="Texture2D" uid="uid://buos7hurvlvhm" path="res://assets/textures/Core.png" id="2_7g6u4"]
+[ext_resource type="Texture2D" uid="uid://b5d3k3nfwfwgo" path="res://assets/textures/CoreButton.png" id="3_uwfst"]
+[ext_resource type="Texture2D" uid="uid://5046cfnnqjh7" path="res://assets/textures/PhishBody.png" id="4_gxvgx"]
+[ext_resource type="Texture2D" uid="uid://b8i8w0xudbm5" path="res://assets/textures/PhishHead.png" id="5_jsjen"]
+[ext_resource type="Texture2D" uid="uid://bctujtpydppee" path="res://assets/textures/PhishMouth.png" id="6_hwdbn"]
+[ext_resource type="Texture2D" uid="uid://cmvipyc6016iq" path="res://assets/textures/0-STATIC/1.png" id="7_4tvbu"]
+[ext_resource type="Texture2D" uid="uid://dgd342ohfdrn5" path="res://assets/textures/0-STATIC/2.png" id="8_34d2l"]
+[ext_resource type="Texture2D" uid="uid://bk1481bsp1fuy" path="res://assets/textures/0-STATIC/3.png" id="9_70qmw"]
+[ext_resource type="Texture2D" uid="uid://bn2j2kygv5ai0" path="res://assets/textures/0-STATIC/4.png" id="10_oqbpw"]
+[ext_resource type="Texture2D" uid="uid://c73jgeiwpc1xt" path="res://assets/textures/0-STATIC/5.png" id="11_op8dq"]
+[ext_resource type="Texture2D" uid="uid://dmjdjq7wc6tkf" path="res://assets/textures/0-STATIC/6.png" id="12_t7xps"]
+[ext_resource type="Texture2D" uid="uid://g2c0ltyhc05g" path="res://assets/textures/0-STATIC/7.png" id="13_xxsnc"]
+[ext_resource type="Texture2D" uid="uid://bsw6q1284vup1" path="res://assets/textures/0-STATIC/8.png" id="14_lg8bk"]
+[ext_resource type="Script" uid="uid://cabimrgaihefu" path="res://scripts/ui/static1.gd" id="15_ts2vb"]
+[ext_resource type="AudioStream" uid="uid://su24aj2f2b5" path="res://assets/textures/AUDIO/XSCREAM.wav" id="16_na1t5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i3kjd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_4tvbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_34d2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_70qmw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_oqbpw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_op8dq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_t7xps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_xxsnc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_lg8bk")
+}],
+"loop": true,
+"name": &"movimiento",
+"speed": 25.0
+}]
+
+[node name="PhisingGm" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_34d2l")
+
+[node name="fondo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_iqpiy")
+expand_mode = 1
+
+[node name="core" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7g6u4")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_uwfst")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_gxvgx")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_jsjen")
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_hwdbn")
+
+[node name="EstaticaCam" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.43529412)
+position = Vector2(719.875, 540.99994)
+scale = Vector2(1.1251953, 1.4972222)
+sprite_frames = SubResource("SpriteFrames_i3kjd")
+animation = &"movimiento"
+script = ExtResource("15_ts2vb")
+
+[node name="jumpscare" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_na1t5")

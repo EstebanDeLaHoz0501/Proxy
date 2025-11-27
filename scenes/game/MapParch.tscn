@@ -1,23 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxlfv53p8ljir"]
+[gd_scene load_steps=10 format=3 uid="uid://bxlfv53p8ljir"]
 
 [ext_resource type="Script" uid="uid://bn8m61ww3i37r" path="res://scripts/nodes/MapParch.gd" id="1_aquni"]
 [ext_resource type="Texture2D" uid="uid://7jh6116ytpdo" path="res://assets/textures/CameraBg.png" id="1_w7ogq"]
 [ext_resource type="Texture2D" uid="uid://cgoccj0ccoucf" path="res://assets/textures/OfficeBackground.png" id="2_aquni"]
 [ext_resource type="Texture2D" uid="uid://e6gf0tudqohy" path="res://assets/textures/Minimap.png" id="3_uji7u"]
-[ext_resource type="Script" uid="uid://bb16xxu50o2i7" path="res://scripts/nodes/CamParch.gd" id="5_uji7u"]
+[ext_resource type="Script" uid="uid://brtfby05qf8e7" path="res://scripts/Action/map_node_button.gd" id="5_aquni"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ux36"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x0eox"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nljtu"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6b7f"]
-bg_color = Color(0.11216224, 0.20027915, 0.43604127, 0.49019608)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hkto2"]
 
@@ -87,7 +80,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_x0eox"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_x0eox")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_x0eox")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x0eox")
-script = ExtResource("5_uji7u")
+script = ExtResource("5_aquni")
 
 [node name="CamParch2" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
@@ -105,64 +98,61 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_x0eox"
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_x0eox")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_x0eox")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x0eox")
-script = ExtResource("5_uji7u")
+script = ExtResource("5_aquni")
 
 [node name="CamParch3" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
-offset_left = 307.0
-offset_top = 129.0
-offset_right = 417.0
-offset_bottom = 242.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/hover = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/focus = SubResource("StyleBoxFlat_d6b7f")
-disabled = true
+offset_left = 320.0
+offset_top = 145.0
+offset_right = 403.5
+offset_bottom = 229.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nljtu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x0eox")
+script = ExtResource("5_aquni")
 
 [node name="CamParch4" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
-offset_left = 199.0
-offset_top = 223.0
-offset_right = 309.0
-offset_bottom = 336.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/hover = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/focus = SubResource("StyleBoxFlat_d6b7f")
-disabled = true
+offset_left = 211.0
+offset_top = 240.0
+offset_right = 294.5
+offset_bottom = 324.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nljtu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x0eox")
+script = ExtResource("5_aquni")
 
 [node name="CamParch5" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
-offset_left = 382.0
-offset_top = 255.0
-offset_right = 494.0
-offset_bottom = 368.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/hover = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_d6b7f")
-theme_override_styles/focus = SubResource("StyleBoxFlat_d6b7f")
-disabled = true
+offset_left = 395.0
+offset_top = 266.0
+offset_right = 478.5
+offset_bottom = 350.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nljtu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_x0eox")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x0eox")
+script = ExtResource("5_aquni")
 
 [node name="ProgressBar" type="ProgressBar" parent="TextureRect/TextureRect2/map"]
 visible = false
@@ -203,4 +193,10 @@ text = "X"
 [connection signal="button_up" from="TextureRect/TextureRect2/map/CamParch1" to="TextureRect/TextureRect2/map/CamParch1" method="_on_button_up"]
 [connection signal="button_down" from="TextureRect/TextureRect2/map/CamParch2" to="TextureRect/TextureRect2/map/CamParch2" method="_on_button_down"]
 [connection signal="button_up" from="TextureRect/TextureRect2/map/CamParch2" to="TextureRect/TextureRect2/map/CamParch2" method="_on_button_up"]
+[connection signal="button_down" from="TextureRect/TextureRect2/map/CamParch3" to="TextureRect/TextureRect2/map/CamParch3" method="_on_button_down"]
+[connection signal="button_up" from="TextureRect/TextureRect2/map/CamParch3" to="TextureRect/TextureRect2/map/CamParch3" method="_on_button_up"]
+[connection signal="button_down" from="TextureRect/TextureRect2/map/CamParch4" to="TextureRect/TextureRect2/map/CamParch4" method="_on_button_down"]
+[connection signal="button_up" from="TextureRect/TextureRect2/map/CamParch4" to="TextureRect/TextureRect2/map/CamParch4" method="_on_button_up"]
+[connection signal="button_down" from="TextureRect/TextureRect2/map/CamParch5" to="TextureRect/TextureRect2/map/CamParch5" method="_on_button_down"]
+[connection signal="button_up" from="TextureRect/TextureRect2/map/CamParch5" to="TextureRect/TextureRect2/map/CamParch5" method="_on_button_up"]
 [connection signal="pressed" from="TextureRect/TextureRect2/VolverMapParch" to="." method="_on_volver_map_parch_pressed"]

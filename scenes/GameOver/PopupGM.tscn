@@ -1,0 +1,148 @@
+[gd_scene load_steps=16 format=3 uid="uid://cl8c83ky3g56r"]
+
+[ext_resource type="Texture2D" uid="uid://1t4yydxyqw76" path="res://assets/textures/Popup1.png" id="1_87ttw"]
+[ext_resource type="Script" uid="uid://dmiv0kndi1qcy" path="res://scripts/malware/gritojumpscare.gd" id="1_ih5d5"]
+[ext_resource type="Texture2D" uid="uid://ds2cmvfa23fjq" path="res://assets/textures/Popup2.png" id="2_evtcu"]
+[ext_resource type="Texture2D" uid="uid://cddp560crt54" path="res://assets/textures/PopupCensurado.png" id="3_8r4fu"]
+[ext_resource type="Texture2D" uid="uid://cmvipyc6016iq" path="res://assets/textures/0-STATIC/1.png" id="4_xeve1"]
+[ext_resource type="Texture2D" uid="uid://dgd342ohfdrn5" path="res://assets/textures/0-STATIC/2.png" id="5_8e85y"]
+[ext_resource type="Texture2D" uid="uid://bk1481bsp1fuy" path="res://assets/textures/0-STATIC/3.png" id="6_ih5d5"]
+[ext_resource type="Texture2D" uid="uid://bn2j2kygv5ai0" path="res://assets/textures/0-STATIC/4.png" id="7_qf44e"]
+[ext_resource type="Texture2D" uid="uid://c73jgeiwpc1xt" path="res://assets/textures/0-STATIC/5.png" id="8_snkky"]
+[ext_resource type="Texture2D" uid="uid://dmjdjq7wc6tkf" path="res://assets/textures/0-STATIC/6.png" id="9_paokf"]
+[ext_resource type="Texture2D" uid="uid://g2c0ltyhc05g" path="res://assets/textures/0-STATIC/7.png" id="10_v0bq2"]
+[ext_resource type="Texture2D" uid="uid://bsw6q1284vup1" path="res://assets/textures/0-STATIC/8.png" id="11_jie11"]
+[ext_resource type="Script" uid="uid://cabimrgaihefu" path="res://scripts/ui/static1.gd" id="12_58yc8"]
+[ext_resource type="AudioStream" uid="uid://su24aj2f2b5" path="res://assets/textures/AUDIO/XSCREAM.wav" id="14_qf44e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l56ew"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xeve1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8e85y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ih5d5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qf44e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_snkky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_paokf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_v0bq2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_jie11")
+}],
+"loop": true,
+"name": &"movimiento",
+"speed": 25.0
+}]
+
+[node name="PopupGm" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ih5d5")
+metadata/_edit_vertical_guides_ = [-1470.0]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -109.000015
+offset_top = 438.0
+offset_right = -109.0
+offset_bottom = 438.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.824532, 0.8611945)
+texture = ExtResource("1_87ttw")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -464.0
+offset_top = -284.0
+offset_right = -464.0
+offset_bottom = -284.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_evtcu")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 446.0
+offset_top = -226.0
+offset_right = 446.0
+offset_bottom = -226.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8r4fu")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -451.0
+offset_top = 169.0
+offset_right = -451.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8r4fu")
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 785.0
+offset_top = -59.0
+offset_right = 369.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_87ttw")
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 548.0
+offset_top = 522.0
+offset_right = 548.0
+offset_bottom = 522.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_evtcu")
+
+[node name="EstaticaCam" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.43529412)
+position = Vector2(719.875, 540.99994)
+scale = Vector2(1.1251953, 1.4972222)
+sprite_frames = SubResource("SpriteFrames_l56ew")
+animation = &"movimiento"
+script = ExtResource("12_58yc8")
+
+[node name="jumpscare" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_qf44e")

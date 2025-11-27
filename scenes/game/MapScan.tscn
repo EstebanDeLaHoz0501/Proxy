@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://7jh6116ytpdo" path="res://assets/textures/CameraBg.png" id="2_rk26y"]
 [ext_resource type="Texture2D" uid="uid://cgoccj0ccoucf" path="res://assets/textures/OfficeBackground.png" id="3_lnepf"]
 [ext_resource type="Texture2D" uid="uid://e6gf0tudqohy" path="res://assets/textures/Minimap.png" id="4_bjjtj"]
-[ext_resource type="Script" uid="uid://q1mp2vgoue5o" path="res://scripts/nodes/cam_scan.gd" id="5_lnepf"]
+[ext_resource type="Script" uid="uid://brtfby05qf8e7" path="res://scripts/Action/map_node_button.gd" id="5_lnepf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lnepf"]
 
@@ -66,10 +66,10 @@ texture = ExtResource("4_bjjtj")
 
 [node name="CamScan1" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
-offset_left = 198.0
-offset_top = 12.0
-offset_right = 311.0
-offset_bottom = 125.0
+offset_left = 208.0
+offset_top = 21.0
+offset_right = 300.0
+offset_bottom = 115.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lnepf")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7")
@@ -102,10 +102,10 @@ script = ExtResource("5_lnepf")
 
 [node name="CamScan3" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
-offset_left = 312.5
-offset_top = 141.0
-offset_right = 405.0
-offset_bottom = 230.0
+offset_left = 317.0
+offset_top = 139.0
+offset_right = 409.5
+offset_bottom = 228.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_sl4ap")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7")
@@ -120,9 +120,9 @@ script = ExtResource("5_lnepf")
 
 [node name="CamScan4" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
-offset_left = 208.5
-offset_top = 231.0
-offset_right = 310.0
+offset_left = 210.0
+offset_top = 236.0
+offset_right = 299.5
 offset_bottom = 327.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_sl4ap")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_yrgh7")
@@ -138,10 +138,10 @@ script = ExtResource("5_lnepf")
 
 [node name="CamScan5" type="Button" parent="TextureRect/TextureRect2/map"]
 layout_mode = 0
-offset_left = 386.5
+offset_left = 396.0
 offset_top = 269.0
-offset_right = 490.0
-offset_bottom = 365.0
+offset_right = 481.0
+offset_bottom = 348.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_sl4ap")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_yrgh7")
 theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yrgh7")

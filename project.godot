@@ -20,6 +20,8 @@ SAVEMANAGER="*res://scripts/core/save_manager.gd"
 GAMEMANAGER="*res://scripts/core/game_manager.gd"
 CPULOGIC="*res://scripts/core/cpu_logic.gd"
 PLAYER="*res://scripts/nodes/player.gd"
+MAPMANAGER="*res://scripts/core/map_manager.gd"
+AudioGeneral="*res://scenes/game/audio_general.tscn"
 
 [display]
 

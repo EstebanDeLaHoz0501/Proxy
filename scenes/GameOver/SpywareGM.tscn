@@ -1,0 +1,175 @@
+[gd_scene load_steps=23 format=3 uid="uid://dqpc84bidsdtd"]
+
+[ext_resource type="Script" uid="uid://dmiv0kndi1qcy" path="res://scripts/malware/gritojumpscare.gd" id="1_khl3h"]
+[ext_resource type="Texture2D" uid="uid://cgoccj0ccoucf" path="res://assets/textures/OfficeBackground.png" id="1_uwnb0"]
+[ext_resource type="Texture2D" uid="uid://buos7hurvlvhm" path="res://assets/textures/Core.png" id="2_08d4d"]
+[ext_resource type="Texture2D" uid="uid://b5d3k3nfwfwgo" path="res://assets/textures/CoreButton.png" id="3_plyh4"]
+[ext_resource type="Texture2D" uid="uid://dikxp8eryds0a" path="res://assets/textures/SpyDerBody.png" id="4_4wn7i"]
+[ext_resource type="Texture2D" uid="uid://cifwd022hvjx7" path="res://assets/textures/SpyDerHead.png" id="5_hjddn"]
+[ext_resource type="Texture2D" uid="uid://buyi7xcd0n55q" path="res://assets/textures/SpyIzqBody.png" id="6_swaqo"]
+[ext_resource type="Texture2D" uid="uid://diwbrrgdqak5j" path="res://assets/textures/SpyIzqHead.png" id="7_cx2ex"]
+[ext_resource type="Texture2D" uid="uid://dpprswt0jkdhs" path="res://assets/textures/SpyMidBody.png" id="8_o2qaq"]
+[ext_resource type="Texture2D" uid="uid://ciiwed75yqx2o" path="res://assets/textures/SpyMidHead.png" id="9_dtn84"]
+[ext_resource type="Texture2D" uid="uid://dbgqcvjkrugfd" path="res://assets/textures/SpyFull.png" id="10_8iwlb"]
+[ext_resource type="Texture2D" uid="uid://cmvipyc6016iq" path="res://assets/textures/0-STATIC/1.png" id="11_yckcl"]
+[ext_resource type="Texture2D" uid="uid://dgd342ohfdrn5" path="res://assets/textures/0-STATIC/2.png" id="12_khl3h"]
+[ext_resource type="Texture2D" uid="uid://bk1481bsp1fuy" path="res://assets/textures/0-STATIC/3.png" id="13_pn0v0"]
+[ext_resource type="Texture2D" uid="uid://bn2j2kygv5ai0" path="res://assets/textures/0-STATIC/4.png" id="14_pepve"]
+[ext_resource type="Texture2D" uid="uid://c73jgeiwpc1xt" path="res://assets/textures/0-STATIC/5.png" id="15_t8hng"]
+[ext_resource type="Texture2D" uid="uid://dmjdjq7wc6tkf" path="res://assets/textures/0-STATIC/6.png" id="16_5elf8"]
+[ext_resource type="Texture2D" uid="uid://g2c0ltyhc05g" path="res://assets/textures/0-STATIC/7.png" id="17_kqa6n"]
+[ext_resource type="Texture2D" uid="uid://bsw6q1284vup1" path="res://assets/textures/0-STATIC/8.png" id="18_52w5c"]
+[ext_resource type="Script" uid="uid://cabimrgaihefu" path="res://scripts/ui/static1.gd" id="19_bnfx8"]
+[ext_resource type="AudioStream" uid="uid://su24aj2f2b5" path="res://assets/textures/AUDIO/XSCREAM.wav" id="20_bx7fp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sptve"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_yckcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_khl3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_pn0v0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_pepve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_t8hng")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_5elf8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_kqa6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_52w5c")
+}],
+"loop": true,
+"name": &"movimiento",
+"speed": 25.0
+}]
+
+[node name="SpywareGm" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_khl3h")
+
+[node name="fondo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_uwnb0")
+expand_mode = 1
+
+[node name="core" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_08d4d")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_plyh4")
+expand_mode = 1
+
+[node name="sp1" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_4wn7i")
+expand_mode = 1
+
+[node name="sp11" type="TextureRect" parent="sp1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_hjddn")
+expand_mode = 1
+
+[node name="sp2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_swaqo")
+expand_mode = 1
+
+[node name="sp21" type="TextureRect" parent="sp2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_cx2ex")
+expand_mode = 1
+
+[node name="sp3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_o2qaq")
+expand_mode = 1
+
+[node name="sp31" type="TextureRect" parent="sp3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_dtn84")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_8iwlb")
+expand_mode = 1
+
+[node name="EstaticaCam" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.43529412)
+position = Vector2(719.875, 540.99994)
+scale = Vector2(1.1251953, 1.4972222)
+sprite_frames = SubResource("SpriteFrames_sptve")
+animation = &"movimiento"
+script = ExtResource("19_bnfx8")
+
+[node name="jumpscare" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_bx7fp")

@@ -34,6 +34,7 @@ func start_night(night_number: int):
 		get_tree().change_scene_to_file("res://scenes/game/office.tscn")
 	else:
 		print("ERROR: No se pudo cargar el archivo de reglas: " + path)
+	
 
 # Esta función la llamas desde la escena "Victoria"
 func nivel_completado(noche_que_gano: int):
@@ -48,12 +49,40 @@ func load_night_data(night_number: int):
 	# 2. Carga el archivo de REGLAS (.tres) de la noche seleccionada
 	var path = "res://data/night_" + str(night_number) + ".tres"
 	var loaded_data = load(path)
-	
 	if loaded_data is NightBase:
 		# 3. Almacena el MODELO de datos globalmente.
 		self.current_night_data = loaded_data 
 		print("Modelo de datos de Noche " + str(night_number) + " cargado con éxito.")
 	else:
 		print("ERROR: Falló al cargar archivo de reglas en GameManager: " + path)
-
+	MapManager.spawn_malware_inicial()
 # Tu función 'start_night' antigua ya no se necesita si usamos esta nueva.
+
+@onready var MapManager = get_node("/root/MAPMANAGER") # Asumiendo que es un Autoload
+
+var Ofice = null
+func registrarEscena(scene):
+	Ofice = scene
+func TimeEventPopUp():
+	if Ofice:
+		Ofice.trigger_PopUp()
+		Ofice.do = true
+		
+
+# En res://scripts/core/malware.gd
+func trigger_game_over(malware):
+	if(malware == 'Phishing'):
+		get_tree().change_scene_to_file("res://scenes/GameOver/PhisingGM.tscn")
+	elif(malware == 'Spyware'):
+		get_tree().change_scene_to_file("res://scenes/GameOver/SpywareGM.tscn")
+	elif(malware == 'PopUp'):
+		get_tree().change_scene_to_file("res://scenes/GameOver/PopupGM.tscn")
+	get_tree().paused = true 
+
+#func _ready():
+	# Asegúrate de que el mapa se cree primero
+	#MapManager.crear_mapa_backend()
+	#MapManager.spawn_malware_inicial() 
+	 # ¡Soltamos a la bestia!
+	# Llama a la función de spawn, que ahora vive en MapManager
+	
