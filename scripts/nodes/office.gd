@@ -167,6 +167,9 @@ func ejecutar_accion_final(id_nodo):
 			if ultimo_clic_usado == MOUSE_BUTTON_LEFT:
 				if Player.use_kit():
 					nodo.nivel_infeccion = 0
+					for mal in MAPMANAGER.lista_malwares_activos:
+						if(mal.nodo_actual == nodo):
+							mal.progreso_conquista = 0
 					notification.text = "Parche completado.\n" + notification.text
 
 			elif ultimo_clic_usado == MOUSE_BUTTON_RIGHT:
@@ -176,6 +179,7 @@ func ejecutar_accion_final(id_nodo):
 					for mal in MAPMANAGER.lista_malwares_activos:
 						if(mal.nodo_actual == nodo):
 							mal.volver_a_origen()
+							mal.progreso_conquista = 0
 					notification.text = "Super Parche completado.\n" + notification.text
 					
 #-----------------------------------------------------------------
@@ -224,21 +228,21 @@ func _on_cam_1_pressed() -> void:
 		$MapCams/Cam1/popup.visible = false
 		$MapCams/Cam1/popup2.visible = false
 		$MapCams/Cam1/popup3.visible = false
-		if MAPMANAGER.getMalware('Phishing').nodo_actual.id_numero == 1:
+		if MAPMANAGER.getMalware('Phishing').nodo_actual.id_numero == 1 and MAPMANAGER.getMalware('Phishing').nodo_actual.nivel_infeccion > 0:
 			var px = randi_range(20, 600)   
 			var py = randi_range(100, 400)   
 			$MapCams/Cam1/phishing.position = Vector2(px, py)
 			$MapCams/Cam1/phishing.visible = true
 		else:
 			$MapCams/Cam1/phishing.visible = false
-		if MAPMANAGER.getMalware('Worm').nodo_actual.id_numero == 1:
+		if MAPMANAGER.getMalware('Worm').nodo_actual.id_numero == 1 and MAPMANAGER.getMalware('Worm').nodo_actual.nivel_infeccion > 0:
 			var wx = randi_range(20, 300)   
 			var wy = randi_range(100, 300)   
 			$MapCams/Cam1/worm.position = Vector2(wx, wy)
 			$MapCams/Cam1/worm.visible = true
 		else:
 			$MapCams/Cam1/worm.visible = false
-		if MAPMANAGER.getMalware('VirusPopup').nodo_actual.id_numero == 1:
+		if MAPMANAGER.getMalware('VirusPopup').nodo_actual.id_numero == 1 and MAPMANAGER.getMalware('VirusPopup').nodo_actual.nivel_infeccion > 0:
 			var randompop = randi_range(1, 3)   
 			var vpx = randi_range(20, 300)   
 			var vpy = randi_range(100, 300)
@@ -268,21 +272,21 @@ func _on_cam_2_pressed() -> void:
 		$MapCams/Cam2/popup.visible = false
 		$MapCams/Cam2/popup2.visible = false
 		$MapCams/Cam2/popup3.visible = false
-		if MAPMANAGER.getMalware('Phishing').nodo_actual.id_numero == 2:
+		if MAPMANAGER.getMalware('Phishing').nodo_actual.id_numero == 2 and MAPMANAGER.getMalware('Phishing').nodo_actual.nivel_infeccion > 0:
 			var px = randi_range(20, 600)   
 			var py = randi_range(100, 400)   
 			$MapCams/Cam2/phishing.position = Vector2(px, py)
 			$MapCams/Cam2/phishing.visible = true
 		else:
 			$MapCams/Cam2/phishing.visible = false
-		if MAPMANAGER.getMalware('Worm').nodo_actual.id_numero == 2:
+		if MAPMANAGER.getMalware('Worm').nodo_actual.id_numero == 2 and MAPMANAGER.getMalware('Worm').nodo_actual.nivel_infeccion > 0:
 			var wx = randi_range(20, 600)   
 			var wy = randi_range(100, 400)   
 			$MapCams/Cam2/worm.position = Vector2(wx, wy)
 			$MapCams/Cam2/worm.visible = true
 		else:
 			$MapCams/Cam2/worm.visible = false
-		if MAPMANAGER.getMalware('VirusPopup').nodo_actual.id_numero == 2:
+		if MAPMANAGER.getMalware('VirusPopup').nodo_actual.id_numero == 2 and MAPMANAGER.getMalware('VirusPopup').nodo_actual.nivel_infeccion > 0:
 			var randompop = randi_range(1, 3)   
 			var vpx = randi_range(20, 600)   
 			var vpy = randi_range(100, 400)
@@ -312,21 +316,21 @@ func _on_cam_3_pressed() -> void:
 		$MapCams/Cam3/popup.visible = false
 		$MapCams/Cam3/popup2.visible = false
 		$MapCams/Cam3/popup3.visible = false
-		if MAPMANAGER.getMalware('Phishing').nodo_actual.id_numero == 3:
+		if MAPMANAGER.getMalware('Phishing').nodo_actual.id_numero == 3 and MAPMANAGER.getMalware('Phishing').nodo_actual.nivel_infeccion > 0:
 			var px = randi_range(20, 600)   
 			var py = randi_range(100, 400)   
 			$MapCams/Cam3/phishing.position = Vector2(px, py)
 			$MapCams/Cam3/phishing.visible = true
 		else:
 			$MapCams/Cam3/phishing.visible = false
-		if MAPMANAGER.getMalware('Worm').nodo_actual.id_numero == 3:
+		if MAPMANAGER.getMalware('Worm').nodo_actual.id_numero == 3 and MAPMANAGER.getMalware('Worm').nodo_actual.nivel_infeccion > 0:
 			var wx = randi_range(20, 600)   
 			var wy = randi_range(100, 400)   
 			$MapCams/Cam3/worm.position = Vector2(wx, wy)
 			$MapCams/Cam3/worm.visible = true
 		else:
 			$MapCams/Cam3/worm.visible = false
-		if MAPMANAGER.getMalware('VirusPopup').nodo_actual.id_numero == 3:
+		if MAPMANAGER.getMalware('VirusPopup').nodo_actual.id_numero == 3 and MAPMANAGER.getMalware('VirusPopup').nodo_actual.nivel_infeccion > 0:
 			var randompop = randi_range(1, 3)   
 			var vpx = randi_range(20, 600)   
 			var vpy = randi_range(100, 400)
@@ -356,21 +360,21 @@ func _on_cam_4_pressed() -> void:
 		$MapCams/Cam4/popup.visible = false
 		$MapCams/Cam4/popup2.visible = false
 		$MapCams/Cam4/popup3.visible = false
-		if MAPMANAGER.getMalware('Phishing').nodo_actual.id_numero == 4:
+		if MAPMANAGER.getMalware('Phishing').nodo_actual.id_numero == 4 and MAPMANAGER.getMalware('Phishing').nodo_actual.nivel_infeccion > 0:
 			var px = randi_range(20, 600)   
 			var py = randi_range(100, 400)   
 			$MapCams/Cam4/phishing.position = Vector2(px, py)
 			$MapCams/Cam4/phishing.visible = true
 		else:
 			$MapCams/Cam4/phishing.visible = false
-		if MAPMANAGER.getMalware('Worm').nodo_actual.id_numero == 4:
+		if MAPMANAGER.getMalware('Worm').nodo_actual.id_numero == 4 and MAPMANAGER.getMalware('Worm').nodo_actual.nivel_infeccion > 0:
 			var wx = randi_range(20, 600)   
 			var wy = randi_range(100, 400)   
 			$MapCams/Cam4/worm.position = Vector2(wx, wy)
 			$MapCams/Cam4/worm.visible = true
 		else:
 			$MapCams/Cam4/worm.visible = false
-		if MAPMANAGER.getMalware('VirusPopup').nodo_actual.id_numero == 4:
+		if MAPMANAGER.getMalware('VirusPopup').nodo_actual.id_numero == 4 and MAPMANAGER.getMalware('VirusPopup').nodo_actual.nivel_infeccion > 0:
 			var randompop = randi_range(1, 3)   
 			var vpx = randi_range(20, 600)   
 			var vpy = randi_range(100, 400)
@@ -400,21 +404,21 @@ func _on_cam_5_pressed() -> void:
 		$MapCams/Cam5/popup.visible = false
 		$MapCams/Cam5/popup2.visible = false
 		$MapCams/Cam5/popup3.visible = false
-		if MAPMANAGER.getMalware('Phishing').nodo_actual.id_numero == 5:
+		if MAPMANAGER.getMalware('Phishing').nodo_actual.id_numero == 5 and MAPMANAGER.getMalware('Phishing').nodo_actual.nivel_infeccion > 0 :
 			var px = randi_range(20, 600)   
 			var py = randi_range(100, 400)   
 			$MapCams/Cam5/phishing.position = Vector2(px, py)
 			$MapCams/Cam5/phishing.visible = true
 		else:
 			$MapCams/Cam5/phishing.visible = false
-		if MAPMANAGER.getMalware('Worm').nodo_actual.id_numero == 5:
+		if MAPMANAGER.getMalware('Worm').nodo_actual.id_numero == 5 and MAPMANAGER.getMalware('Worm').nodo_actual.nivel_infeccion > 0:
 			var wx = randi_range(20, 600)   
 			var wy = randi_range(100, 400)   
 			$MapCams/Cam5/worm.position = Vector2(wx, wy)
 			$MapCams/Cam5/worm.visible = true
 		else:
 			$MapCams/Cam5/worm.visible = false
-		if MAPMANAGER.getMalware('VirusPopup').nodo_actual.id_numero == 5:
+		if MAPMANAGER.getMalware('VirusPopup').nodo_actual.id_numero == 5 and MAPMANAGER.getMalware('VirusPopup').nodo_actual.nivel_infeccion > 0:
 			var randompop = randi_range(1, 3)   
 			var vpx = randi_range(20, 600)   
 			var vpy = randi_range(100, 400)
