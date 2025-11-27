@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0cskyphsxryh"]
+
+[ext_resource type="Texture2D" uid="uid://cgoccj0ccoucf" path="res://assets/textures/OfficeBackground.png" id="1_62e2m"]
+[ext_resource type="Texture2D" uid="uid://buos7hurvlvhm" path="res://assets/textures/Core.png" id="2_qtu10"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_62e2m")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -218.0
+offset_top = -230.0
+offset_right = 333.0
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qtu10")
